@@ -1,0 +1,975 @@
+[
+  {
+    "objectID": "04_quarto/04_quartopub.html#section",
+    "href": "04_quarto/04_quartopub.html#section",
+    "title": "Publica con Quarto Pub",
+    "section": "",
+    "text": "Publica con Quarto Pub\nDe Posit Cloud a un sitio web público en minutos\n\n\nSesión 4 — Módulo Quarto\n\n\nFrancisco Alfaro Medina & Patricio Olivares Roncagliolo\nAprende USM 2026 · UTFSM"
+  },
+  {
+    "objectID": "04_quarto/04_quartopub.html#qué-es-quarto-pub",
+    "href": "04_quarto/04_quartopub.html#qué-es-quarto-pub",
+    "title": "Publica con Quarto Pub",
+    "section": "¿Qué es Quarto Pub?",
+    "text": "¿Qué es Quarto Pub?\n\n\nquartopub.com — plataforma oficial y gratuita de publicación para documentos Quarto.\n\nNo requiere instalar nada extra\nFunciona directamente desde Posit Cloud\nUn solo comando para publicar\nURL pública: usuario.quarto.pub/proyecto\n\n\n\n\n\n\nQuarto Pub\nGitHub Pages\n\n\n\n\nRequiere Git\n❌\n✅\n\n\nGratuito\n✅\n✅\n\n\nVelocidad\n⚡ Rápido\nMás pasos\n\n\n\n\n\n\n\n¿Cuándo usarlo?\n\n\nQuarto Pub para publicar rápido. GitHub Pages cuando quieres control de versiones integrado."
+  },
+  {
+    "objectID": "04_quarto/04_quartopub.html#paso-1-crear-cuenta-en-quarto-pub",
+    "href": "04_quarto/04_quartopub.html#paso-1-crear-cuenta-en-quarto-pub",
+    "title": "Publica con Quarto Pub",
+    "section": "Paso 1: Crear cuenta en Quarto Pub",
+    "text": "Paso 1: Crear cuenta en Quarto Pub\n\nVe a quartopub.com\nClic en Sign Up\nRegístrate con tu cuenta de GitHub (recomendado)\nElige un nombre de usuario\n\nTu URL base: https://tu-usuario.quarto.pub"
+  },
+  {
+    "objectID": "04_quarto/04_quartopub.html#paso-2-verificar-que-tu-proyecto-renderiza",
+    "href": "04_quarto/04_quartopub.html#paso-2-verificar-que-tu-proyecto-renderiza",
+    "title": "Publica con Quarto Pub",
+    "section": "Paso 2: Verificar que tu proyecto renderiza",
+    "text": "Paso 2: Verificar que tu proyecto renderiza\nDesde la terminal de Posit Cloud:\nquarto render\nSi no hay errores → estás listo para publicar.\n\n\n\n¿Por qué verificar primero?\n\n\nSi el documento tiene errores de código, la publicación fallará. Es más fácil corregir antes de publicar."
+  },
+  {
+    "objectID": "04_quarto/04_quartopub.html#paso-3-publicar-con-un-comando",
+    "href": "04_quarto/04_quartopub.html#paso-3-publicar-con-un-comando",
+    "title": "Publica con Quarto Pub",
+    "section": "Paso 3: Publicar con un comando",
+    "text": "Paso 3: Publicar con un comando\nquarto publish quarto-pub\nPrimera vez:\n? No accounts found. Would you like to log into Quarto Pub? (Y/n) Y\n→ Se abre el navegador para autorizar\n\n? Site name: mi-analisis-datos\n→ tu-usuario.quarto.pub/mi-analisis-datos ✅\nSiguientes veces: el mismo comando actualiza el sitio directamente."
+  },
+  {
+    "objectID": "04_quarto/04_quartopub.html#qué-puedes-publicar",
+    "href": "04_quarto/04_quartopub.html#qué-puedes-publicar",
+    "title": "Publica con Quarto Pub",
+    "section": "Qué puedes publicar",
+    "text": "Qué puedes publicar\n\n\n\nTipo\nDescripción\n\n\n\n\nDocumento HTML\nUna sola página con tu análisis\n\n\nSitio web\nVarias páginas con navegación\n\n\nLibro\nCapítulos con tabla de contenidos\n\n\nPresentación RevealJS\nSlides interactivos\n\n\n\nEl comando es siempre el mismo: quarto publish quarto-pub"
+  },
+  {
+    "objectID": "04_quarto/04_quartopub.html#flujo-completo",
+    "href": "04_quarto/04_quartopub.html#flujo-completo",
+    "title": "Publica con Quarto Pub",
+    "section": "Flujo completo",
+    "text": "Flujo completo\n1. Escribe en Posit Cloud\n   └── archivo.qmd\n\n2. Verifica\n   └── quarto render\n\n3. Publica\n   └── quarto publish quarto-pub\n\n4. Comparte\n   └── tu-usuario.quarto.pub/nombre-sitio\n\n\n\nVisibilidad\n\n\nTodos los sitios en Quarto Pub son públicos.\nRevisa que no haya datos sensibles, contraseñas ni información confidencial antes de publicar."
+  },
+  {
+    "objectID": "04_quarto/02_positcloud.html#section",
+    "href": "04_quarto/02_positcloud.html#section",
+    "title": "Documentos reproducibles",
+    "section": "",
+    "text": "Documentos reproducibles\nChunks, callouts, referencias cruzadas y salida multiformato\n\n\nSesión 4 — Quarto para material académico\n\n\nFrancisco Alfaro\nDocencia Digital · UTFSM · 2026"
+  },
+  {
+    "objectID": "04_quarto/02_positcloud.html#qué-es-un-documento-reproducible",
+    "href": "04_quarto/02_positcloud.html#qué-es-un-documento-reproducible",
+    "title": "Documentos reproducibles",
+    "section": "¿Qué es un documento reproducible?",
+    "text": "¿Qué es un documento reproducible?\n\n\nUn documento reproducible es aquel que cualquier persona puede tomar, ejecutar, y obtener exactamente el mismo resultado.\nNo “similar” — exactamente el mismo.\nPara un docente esto significa:\n\nEl apunte que dice “la media es 5.23” tiene la media calculada desde el código\nEl histograma que muestra esa distribución sale del mismo código\nSi los datos cambian, ambos se actualizan solos al renderizar\n\n\n\n\n\nSin pasos ocultos\n\n\n❌ “Copié el número del Excel”\n❌ “Ajusté la figura manualmente en PowerPoint”\n✅ Cada número, figura y tabla se genera desde el código del documento."
+  },
+  {
+    "objectID": "04_quarto/02_positcloud.html#chunks-de-código-la-unidad-básica",
+    "href": "04_quarto/02_positcloud.html#chunks-de-código-la-unidad-básica",
+    "title": "Documentos reproducibles",
+    "section": "Chunks de código: la unidad básica",
+    "text": "Chunks de código: la unidad básica\n\n\nSintaxis de un chunk en Quarto:\n```{python}\n#| label: fig-notas\n#| fig-cap: \"Distribución de notas del curso\"\n#| fig-width: 8\n#| fig-height: 4\n#| echo: false\n\nimport matplotlib.pyplot as plt\nimport pandas as pd\n\ndf = pd.read_csv('datos.csv')\nplt.hist(df['nota'], bins=20, color='steelblue')\nplt.xlabel('Nota')\nplt.show()\n```\n\nOpciones de chunk más usadas:\n\n\n\nOpción\nValores\nEfecto\n\n\n\n\necho\ntrue/false\nMuestra/oculta el código\n\n\neval\ntrue/false\nEjecuta o no el código\n\n\noutput\ntrue/false\nMuestra/oculta el output\n\n\nwarning\ntrue/false\nMuestra/oculta warnings\n\n\nfig-cap\ntexto\nPie de figura\n\n\nfig-width\nnúmero\nAncho en pulgadas\n\n\nlabel\ntexto\nID para referencias cruzadas"
+  },
+  {
+    "objectID": "04_quarto/02_positcloud.html#inline-code-resultados-directamente-en-el-texto",
+    "href": "04_quarto/02_positcloud.html#inline-code-resultados-directamente-en-el-texto",
+    "title": "Documentos reproducibles",
+    "section": "Inline code: resultados directamente en el texto",
+    "text": "Inline code: resultados directamente en el texto\n\n\nEn lugar de escribir el número manualmente:\nLa nota promedio del curso fue 5.23.\nQue puede quedar desactualizado si los datos cambian…\nUsa inline code:\nLa nota promedio del curso fue\n`{python} round(df['nota'].mean(), 2)`.\nAl renderizar, Quarto ejecuta la expresión y reemplaza el resultado en el texto. Siempre correcto, siempre actualizado.\n\nMás ejemplos de inline code:\nEl dataset tiene `{python} len(df)` filas y\n`{python} df.shape[1]` columnas.\n\nLa nota mínima fue `{python} df['nota'].min()`\ny la máxima `{python} df['nota'].max()`.\n\nSe identificaron `{python} df['nota'].isna().sum()`\nvalores faltantes en la columna de notas.\n\n\n\nPara apuntes de clase\n\n\nCuando actualizas el dataset del siguiente semestre, todos los números del texto se actualizan automáticamente al hacer quarto render."
+  },
+  {
+    "objectID": "04_quarto/02_positcloud.html#figuras-y-tablas-generadas-desde-código",
+    "href": "04_quarto/02_positcloud.html#figuras-y-tablas-generadas-desde-código",
+    "title": "Documentos reproducibles",
+    "section": "Figuras y tablas generadas desde código",
+    "text": "Figuras y tablas generadas desde código\n\n\nFigura referenciable:\n```{python}\n#| label: fig-scatter\n#| fig-cap: \"Horas de estudio vs nota final\"\n\nplt.scatter(df['horas'], df['nota'])\nplt.xlabel('Horas de estudio')\nplt.ylabel('Nota')\nplt.show()\n```\nEn el texto: Como muestra @fig-scatter, existe una correlación positiva...\n→ Quarto genera “Figura 1” automáticamente y la numera.\n\nTabla desde código:\n```{python}\n#| label: tbl-resumen\n#| tbl-cap: \"Estadísticas descriptivas por carrera\"\n\nresumen = df.groupby('carrera')['nota'].describe()\nresumen.round(2)\n```\nEn el texto: La Tabla @tbl-resumen muestra...\n\n\n\nPrefijos de las etiquetas\n\n\n\nFiguras: fig-nombre\nTablas: tbl-nombre\nEcuaciones: eq-nombre\nSecciones: sec-nombre\n\nLa referencia @fig-nombre genera “Figura 1” (o “Figure 1” en inglés)."
+  },
+  {
+    "objectID": "04_quarto/02_positcloud.html#callouts-bloques-pedagógicos-visuales",
+    "href": "04_quarto/02_positcloud.html#callouts-bloques-pedagógicos-visuales",
+    "title": "Documentos reproducibles",
+    "section": "Callouts: bloques pedagógicos visuales",
+    "text": "Callouts: bloques pedagógicos visuales\n\n\nLos cinco tipos:\n::: {.callout-note}\n## Nota\nInformación adicional de contexto.\n:::\n\n::: {.callout-tip}\n## Consejo\nBuena práctica o atajo útil.\n:::\n\n::: {.callout-warning}\n## Advertencia\nAlgo que puede salir mal.\n:::\n\n::: {.callout-important}\n## Importante\nConcepto clave que no debe perderse.\n:::\n\n::: {.callout-caution}\n## Precaución\nAcción que puede tener consecuencias irreversibles.\n:::\n\nOpciones de callout:\n::: {.callout-tip icon=\"false\" collapse=\"true\"}\n## Pista (expandir para ver)\n\nEsta pista solo aparece cuando el estudiante\nhace clic para expandir el bloque.\n:::\n\n\n\nEn apuntes de curso\n\n\nLos callouts son perfectos para: definiciones, ejemplos, advertencias sobre errores comunes, pistas en guías de ejercicios y conexiones con otros temas del curso."
+  },
+  {
+    "objectID": "04_quarto/02_positcloud.html#referencias-cruzadas-el-sistema-completo",
+    "href": "04_quarto/02_positcloud.html#referencias-cruzadas-el-sistema-completo",
+    "title": "Documentos reproducibles",
+    "section": "Referencias cruzadas: el sistema completo",
+    "text": "Referencias cruzadas: el sistema completo\n\n\nEtiquetar:\n## Introducción {#sec-intro}\n\n$$\ny = \\beta_0 + \\beta_1 x + \\varepsilon\n$$ {#eq-regresion}\n\n![Figura de dispersión](scatter.png){#fig-scatter}\nReferenciar:\nComo vimos en @sec-intro, la ecuación\n@eq-regresion modela la relación lineal.\n\nLa @fig-scatter muestra el ajuste del modelo.\nQuarto genera automáticamente: “Sección 1”, “Ecuación 1”, “Figura 1”.\n\nConfigurar el idioma de las referencias:\nlang: es\ncrossref:\n  fig-prefix: \"Figura\"\n  tbl-prefix: \"Tabla\"\n  eq-prefix: \"Ecuación\"\n  sec-prefix: \"Sección\"\n\n\n\nNumeración automática\n\n\nSi insertas una nueva figura antes de la Figura 3, todas se renumeran automáticamente. Las referencias en el texto siguen siendo correctas.\nLo mismo con secciones, tablas y ecuaciones."
+  },
+  {
+    "objectID": "04_quarto/02_positcloud.html#tablas-con-knitrkable-y-gt",
+    "href": "04_quarto/02_positcloud.html#tablas-con-knitrkable-y-gt",
+    "title": "Documentos reproducibles",
+    "section": "Tablas con knitr::kable y gt",
+    "text": "Tablas con knitr::kable y gt\n\n\nTabla simple con pandas:\n```{python}\n#| tbl-cap: \"Resultados del modelo\"\n\nimport pandas as pd\nfrom IPython.display import display\n\nresultados = pd.DataFrame({\n    'Modelo': ['Lineal', 'Árbol', 'Red'],\n    'Precisión': [0.82, 0.91, 0.95],\n    'Tiempo (s)': [1.2, 3.7, 45.2]\n})\n\ndisplay(resultados.style.format({\n    'Precisión': '{:.2%}',\n    'Tiempo (s)': '{:.1f}'\n}))\n```\n\nTabla desde Markdown puro:\n| Semana | Tema | Material |\n|--------|------|----------|\n| 1 | Introducción | [Ver](lectures/s01.qmd) |\n| 2 | Estadística | [Ver](lectures/s02.qmd) |\n| 3 | Regresión | [Ver](lectures/s03.qmd) |\n\n\n\nCuándo usar qué\n\n\nTabla Markdown: contenido estático (calendario, lista de temas)\nTabla desde código: datos que vienen de un DataFrame o cálculo"
+  },
+  {
+    "objectID": "04_quarto/02_positcloud.html#salida-multiformato-desde-un-solo-archivo",
+    "href": "04_quarto/02_positcloud.html#salida-multiformato-desde-un-solo-archivo",
+    "title": "Documentos reproducibles",
+    "section": "Salida multiformato desde un solo archivo",
+    "text": "Salida multiformato desde un solo archivo\n\n\nConfigurar múltiples formatos:\n---\ntitle: \"Guía de Laboratorio 3\"\nformat:\n  html:\n    theme: cosmo\n    toc: true\n    code-fold: true\n  pdf:\n    documentclass: article\n    geometry:\n      - top=2cm\n      - left=3cm\n  docx:\n    reference-doc: plantilla-usm.docx\n---\n\nRenderizar todos los formatos:\nquarto render guia.qmd\n# → guia.html\n# → guia.pdf\n# → guia.docx\nOpciones específicas por formato:\n```{python}\n#| echo: false\n#| fig-format: svg   # SVG para HTML\n                     # PDF para PDF (automático)\nplt.plot(x, y)\nplt.show()\n```\n\n\n\nEl flujo docente ideal\n\n\nHTML → sitio del curso (navegable)\nPDF → imprimible para quien lo prefiera\nWord → para colegas que editan en Word"
+  },
+  {
+    "objectID": "04_quarto/02_positcloud.html#section-1",
+    "href": "04_quarto/02_positcloud.html#section-1",
+    "title": "Documentos reproducibles",
+    "section": "",
+    "text": "¿Preguntas?\n\nFrancisco Alfaro\nfralfaro@usm.cl\nDocencia Digital · UTFSM\n2026"
+  },
+  {
+    "objectID": "03_latex/02_informe.html#section",
+    "href": "03_latex/02_informe.html#section",
+    "title": "Plantillas y producción de documentos",
+    "section": "",
+    "text": "Plantillas y producción de documentos\nBeamer, tikz, IA para LaTeX y la decisión LaTeX vs Quarto\n\n\nSesión 3 — Overleaf y LaTeX para docencia\n\n\nFrancisco Alfaro\nDocencia Digital · UTFSM · 2026"
+  },
+  {
+    "objectID": "03_latex/02_informe.html#por-qué-usar-plantillas",
+    "href": "03_latex/02_informe.html#por-qué-usar-plantillas",
+    "title": "Plantillas y producción de documentos",
+    "section": "¿Por qué usar plantillas?",
+    "text": "¿Por qué usar plantillas?\n\n\nUna plantilla LaTeX es un archivo .tex preconfigurado con el formato correcto: márgenes, tipografía, estilos de sección, portada institucional.\nEn lugar de configurar todo desde cero y cometer errores de formato, partes del resultado final y solo escribes el contenido.\n\n\n\nTipo\nPara qué\nFuente\n\n\n\n\nInstitucional UTFSM\nInformes, memorias\nDTD / Biblioteca\n\n\nIEEE\nPapers de ingeniería\noverleaf.com/gallery\n\n\nAPA 7ª ed.\nCiencias sociales\nPaquete apa7\n\n\nACM\nComputación\noverleaf.com/gallery\n\n\n\n\n\n\n\nOverleaf Gallery\n\n\n→ overleaf.com/gallery\nCientos de plantillas listas para usar: conferencias IEEE, revistas Springer, tesis universitarias, presentaciones Beamer.\nClic en Open in Overleaf → template listo en segundos."
+  },
+  {
+    "objectID": "03_latex/02_informe.html#plantilla-de-informe-técnico-utfsm",
+    "href": "03_latex/02_informe.html#plantilla-de-informe-técnico-utfsm",
+    "title": "Plantillas y producción de documentos",
+    "section": "Plantilla de informe técnico UTFSM",
+    "text": "Plantilla de informe técnico UTFSM\n\n\n\\documentclass[12pt, letterpaper]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[spanish]{babel}\n\\usepackage{amsmath, graphicx, hyperref}\n\n% Márgenes\n\\usepackage[top=2.5cm, bottom=2.5cm,\n            left=3cm, right=2.5cm]{geometry}\n\n% Encabezado institucional\n\\usepackage{fancyhdr}\n\\pagestyle{fancy}\n\\fancyhead[L]{\\small UTFSM · Departamento de Matemáticas}\n\\fancyhead[R]{\\small Semestre 2025-1}\n\\fancyfoot[C]{\\thepage}\n\n\\title{\\textbf{Guía de Laboratorio 3}\\\\\n       \\large Regresión Lineal}\n\\author{Juan Pérez \\\\ \\small juan.perez@usm.cl}\n\\date{Semestre 2025-1}\n\n\\begin{document}\n\\maketitle\n\\thispagestyle{empty}  % sin encabezado en portada\n\\newpage\n\n\\tableofcontents\n\\newpage\n\n\\section{Introducción}\n\\label{sec:intro}\n\n\\section{Marco Teórico}\n\\label{sec:teoria}\n\n\\section{Actividades}\n\\label{sec:actividades}\n\n\\begin{enumerate}\n  \\item Cargar el dataset...\n  \\item Aplicar regresión...\n\\end{enumerate}\n\n\\printbibliography\n\\end{document}"
+  },
+  {
+    "objectID": "03_latex/02_informe.html#presentaciones-académicas-con-beamer",
+    "href": "03_latex/02_informe.html#presentaciones-académicas-con-beamer",
+    "title": "Plantillas y producción de documentos",
+    "section": "Presentaciones académicas con Beamer",
+    "text": "Presentaciones académicas con Beamer\n\n\nBeamer es la clase LaTeX para presentaciones en PDF. Produce slides con calidad tipográfica perfecta — especialmente para matemáticas.\n\\documentclass{beamer}\n\\usetheme{Madrid}        % tema visual\n\\usecolortheme{seahorse} % esquema de colores\n\n\\title{Regresión Lineal}\n\\author{Juan Pérez}\n\\institute{UTFSM}\n\\date{\\today}\n\n\\begin{document}\n\n\\begin{frame}\n  \\titlepage\n\\end{frame}\n\n\\begin{frame}{Tabla de contenidos}\n  \\tableofcontents\n\\end{frame}\n\n\\section{Introducción}\n\\begin{frame}{El problema}\n  \\begin{itemize}\n    \\item Primer punto\n    \\item&lt;2-&gt; Aparece en el slide 2\n    \\item&lt;3-&gt; Aparece en el slide 3\n  \\end{itemize}\n\\end{frame}\n\n\\end{document}\n\nElementos de un frame:\n\\begin{frame}{Título del frame}\n\n  % Dos columnas\n  \\begin{columns}\n    \\begin{column}{0.5\\textwidth}\n      Columna izquierda\n    \\end{column}\n    \\begin{column}{0.5\\textwidth}\n      Columna derecha\n    \\end{column}\n  \\end{columns}\n\n  % Caja destacada\n  \\begin{block}{Resultado clave}\n    $\\nabla J(\\theta) \\propto \\mu(s) q_\\pi \\nabla\\pi$\n  \\end{block}\n\n  % Alerta\n  \\begin{alertblock}{Cuidado}\n    Esta condición debe verificarse...\n  \\end{alertblock}\n\n\\end{frame}"
+  },
+  {
+    "objectID": "03_latex/02_informe.html#tikz-diagramas-vectoriales-en-latex",
+    "href": "03_latex/02_informe.html#tikz-diagramas-vectoriales-en-latex",
+    "title": "Plantillas y producción de documentos",
+    "section": "tikz: diagramas vectoriales en LaTeX",
+    "text": "tikz: diagramas vectoriales en LaTeX\n\n\ntikz es la librería de gráficos vectoriales de LaTeX. Produce diagramas perfectamente integrados con el texto y las ecuaciones del documento.\n\\usepackage{tikz}\n\\usetikzlibrary{arrows.meta, shapes, positioning}\n\n\\begin{tikzpicture}\n  % Nodos\n  \\node[circle, draw, fill=blue!20]\n    (A) at (0,0) {$s_0$};\n  \\node[circle, draw, fill=blue!20]\n    (B) at (3,0) {$s_1$};\n  \\node[rectangle, draw, fill=green!20]\n    (C) at (6,0) {Terminal};\n\n  % Flechas\n  \\draw[-&gt;] (A) -- node[above] {right} (B);\n  \\draw[-&gt;] (B) -- node[above] {right} (C);\n  \\draw[-&gt;] (A) to[bend right=30]\n    node[below] {left} (B);\n\\end{tikzpicture}\n\nCasos de uso en docencia:\n\nDiagramas de flujo de algoritmos\nGrafos de estados (cadenas de Markov)\nRedes neuronales\nÁrboles de decisión\nDiagramas de bloques de sistemas\n\n\n\n\nAlternativa: PGFPlots\n\n\nPara gráficas de funciones matemáticas directamente en LaTeX:\n\\usepackage{pgfplots}\n\n\\begin{tikzpicture}\n\\begin{axis}[xlabel=$x$, ylabel=$f(x)$]\n  \\addplot[blue, thick] {x^2};\n\\end{axis}\n\\end{tikzpicture}"
+  },
+  {
+    "objectID": "03_latex/02_informe.html#paquetes-esenciales-para-documentos-técnicos",
+    "href": "03_latex/02_informe.html#paquetes-esenciales-para-documentos-técnicos",
+    "title": "Plantillas y producción de documentos",
+    "section": "Paquetes esenciales para documentos técnicos",
+    "text": "Paquetes esenciales para documentos técnicos\n\n\n\n\n\n\n\n\nPaquete\nPara qué\nEjemplo de uso\n\n\n\n\namsmath\nEcuaciones completas\nalign, cases, matrix\n\n\ngraphicx\nImágenes\n\\includegraphics\n\n\nhyperref\nLinks clicables\n\\href{}{}, \\ref{}\n\n\ngeometry\nMárgenes\n\\usepackage[top=2.5cm]{geometry}\n\n\nfancyhdr\nEncabezados personalizados\nLogo, número de página\n\n\nlistings\nCódigo fuente con sintaxis\nPython, R, C++\n\n\nalgorithm2e\nPseudocódigo de algoritmos\nBubble sort, gradient descent\n\n\nsiunitx\nUnidades del SI\n\\SI{9.8}{\\meter\\per\\second}\n\n\nbooktabs\nTablas profesionales\n\\toprule, \\midrule, \\bottomrule"
+  },
+  {
+    "objectID": "03_latex/02_informe.html#ia-para-generar-código-latex",
+    "href": "03_latex/02_informe.html#ia-para-generar-código-latex",
+    "title": "Plantillas y producción de documentos",
+    "section": "IA para generar código LaTeX",
+    "text": "IA para generar código LaTeX\n\n\nLos modelos de lenguaje son muy buenos con LaTeX:\n“Escribe en LaTeX la demostración del Teorema de Bayes con el ambiente proof de amsthm”\n“Crea una tabla LaTeX con booktabs que muestre los resultados de precisión de cinco modelos de clasificación”\n“Genera el código tikz para un diagrama de red neuronal con 3 capas: entrada (4 neuronas), oculta (6), salida (2)”\nHerramientas específicas:\n\nMathpix → fotografía una ecuación → LaTeX\nDetexify → dibuja el símbolo → comando\nChatGPT / Claude → descripción en texto → LaTeX\n\n\n\n\n\nRevisar siempre el output de IA\n\n\nLa IA comete errores específicos en LaTeX:\n\nPaquetes que no son necesarios o que están en conflicto\nSintaxis obsoleta de versiones antiguas\nTikz que compila pero no produce lo esperado visualmente\n\nEstrategia: pega el output en Overleaf, compila, verifica el resultado visualmente."
+  },
+  {
+    "objectID": "03_latex/02_informe.html#latex-vs-quarto-cuándo-usar-cuál",
+    "href": "03_latex/02_informe.html#latex-vs-quarto-cuándo-usar-cuál",
+    "title": "Plantillas y producción de documentos",
+    "section": "LaTeX vs Quarto: cuándo usar cuál",
+    "text": "LaTeX vs Quarto: cuándo usar cuál\n\n\nUsa LaTeX cuando:\n✅ Necesitas el formato exacto de una revista o conferencia (IEEE, ACM, Springer)\n✅ El documento tiene mucha matemática densa y compleja\n✅ Produces una tesis o memoria con plantilla institucional\n✅ Necesitas control tipográfico fino (kerning, microtype)\n✅ El PDF final es el único formato que importa\n\nUsa Quarto cuando:\n✅ Quieres publicar el mismo contenido en múltiples formatos (HTML, PDF, Word)\n✅ El documento tiene código ejecutable que genera las figuras y tablas\n✅ Necesitas un sitio web del curso, no solo un PDF\n✅ Quieres que los estudiantes puedan ver el código y los resultados juntos\n✅ La curva de entrada más baja es importante\n\n\n\n\n\nLa combinación ganadora\n\n\nLaTeX para el PDF de alta calidad de los papers y guías formales. Quarto para el sitio web del curso con todo el material reproducible. No compiten — se complementan."
+  },
+  {
+    "objectID": "03_latex/02_informe.html#checklist-del-documento-latex-listo-para-publicar",
+    "href": "03_latex/02_informe.html#checklist-del-documento-latex-listo-para-publicar",
+    "title": "Plantillas y producción de documentos",
+    "section": "Checklist del documento LaTeX listo para publicar",
+    "text": "Checklist del documento LaTeX listo para publicar\nPreámbulo:\n☐ \\usepackage[utf8]{inputenc}     → caracteres especiales\n☐ \\usepackage[spanish]{babel}     → reglas tipográficas del español\n☐ \\usepackage{amsmath, amssymb}   → matemáticas completas\n☐ \\usepackage[style=apa]{biblatex} → bibliografía\n\nContenido:\n☐ Todas las ecuaciones tienen \\label y se referencian con \\eqref\n☐ Todas las figuras tienen \\caption y \\label\n☐ Todas las tablas tienen \\caption y \\label\n☐ La bibliografía está en el .bib y se cita en el texto\n\nCompilación en Overleaf:\n☐ Compilar dos veces (para referencias cruzadas correctas)\n☐ Sin warnings rojos en el log\n☐ Revisar la tabla de contenidos generada\n☐ Verificar que todos los links funcionan (hyperref)"
+  },
+  {
+    "objectID": "03_latex/02_informe.html#section-1",
+    "href": "03_latex/02_informe.html#section-1",
+    "title": "Plantillas y producción de documentos",
+    "section": "",
+    "text": "¿Preguntas?\n\nFrancisco Alfaro\nfralfaro@usm.cl\nDocencia Digital · UTFSM\n2026"
+  },
+  {
+    "objectID": "02_colab/02_practica.html#section",
+    "href": "02_colab/02_practica.html#section",
+    "title": "Manipulación de datos con pandas",
+    "section": "",
+    "text": "Manipulación de datos con pandas\nDel dato crudo al análisis en Google Colab\n\n\nSesión 2 — Google Colab para docencia\n\n\nFrancisco Alfaro\nDocencia Digital · UTFSM · 2026"
+  },
+  {
+    "objectID": "02_colab/02_practica.html#pandas-la-hoja-de-cálculo-programable",
+    "href": "02_colab/02_practica.html#pandas-la-hoja-de-cálculo-programable",
+    "title": "Manipulación de datos con pandas",
+    "section": "pandas: la hoja de cálculo programable",
+    "text": "pandas: la hoja de cálculo programable\n\n\n¿Qué es pandas?\nLa librería central del ecosistema de ciencia de datos en Python.\n\nNumPy = la calculadora\npandas = la hoja de cálculo programable\n\nPermite cargar, explorar, limpiar, transformar y exportar datos tabulares con sintaxis expresiva y eficiente.\nimport pandas as pd\n\n# Verificar versión\nprint(pd.__version__)  # 2.2.x\n\nEl DataFrame:\n\n\n\n\n\ngraph TD\n    DF[\"📊 DataFrame df\"]\n    DF --&gt; C1[\"📋 Serie: nombre\\n['Ana','Luis','María']\"]\n    DF --&gt; C2[\"📋 Serie: nota\\n[6.2, 5.8, 6.9]\"]\n    DF --&gt; C3[\"📋 Serie: carrera\\n['Civil','Ind.','Civil']\"]\n    DF --&gt; I[\"🔢 Índice\\n[0, 1, 2]\"]\n\n\n\n\n\n\nUna tabla bidimensional con filas y columnas etiquetadas."
+  },
+  {
+    "objectID": "02_colab/02_practica.html#cargar-datos-csv-excel-url-google-drive",
+    "href": "02_colab/02_practica.html#cargar-datos-csv-excel-url-google-drive",
+    "title": "Manipulación de datos con pandas",
+    "section": "Cargar datos: CSV, Excel, URL, Google Drive",
+    "text": "Cargar datos: CSV, Excel, URL, Google Drive\n\n\nDesde CSV local o URL:\n# Desde URL pública (recomendado para docencia)\ndf = pd.read_csv('https://raw.githubusercontent.com/...')\n\n# CSV local\ndf = pd.read_csv('datos.csv')\n\n# Con opciones\ndf = pd.read_csv('datos.csv',\n    sep=';',           # separador punto y coma\n    encoding='utf-8',\n    decimal=',')       # decimales con coma (España/Chile)\nDesde Excel:\ndf = pd.read_excel('datos.xlsx', sheet_name='Hoja1')\n\nDesde Google Drive en Colab:\nfrom google.colab import drive\ndrive.mount('/content/drive')\n\ndf = pd.read_csv(\n    '/content/drive/MyDrive/datos.csv'\n)\nFormatos adicionales:\npd.read_json('datos.json')\npd.read_parquet('datos.parquet')\npd.read_sql(query, conexion)\n\n\n\nPara clases: usa URLs de GitHub\n\n\nLos datos en tu repo del curso siempre están accesibles sin configuración."
+  },
+  {
+    "objectID": "02_colab/02_practica.html#exploración-inicial-lo-primero-que-siempre-haces",
+    "href": "02_colab/02_practica.html#exploración-inicial-lo-primero-que-siempre-haces",
+    "title": "Manipulación de datos con pandas",
+    "section": "Exploración inicial: lo primero que siempre haces",
+    "text": "Exploración inicial: lo primero que siempre haces\n\n\n# Dimensiones\ndf.shape         # (1000, 8) → filas, columnas\n\n# Primeras / últimas filas\ndf.head(5)\ndf.tail(3)\n\n# Tipos de datos y valores nulos\ndf.info()\n\n# Estadísticas descriptivas\ndf.describe()\n\n# Valores únicos en una columna\ndf['carrera'].unique()\ndf['carrera'].value_counts()\n\n# Valores nulos por columna\ndf.isnull().sum()\n\nLa secuencia de exploración:\n\n\n\nPaso\nFunción\nPregunta que responde\n\n\n\n\n1\nshape\n¿Cuántos datos tengo?\n\n\n2\nhead()\n¿Cómo se ven los datos?\n\n\n3\ninfo()\n¿Qué tipos son las columnas?\n\n\n4\ndescribe()\n¿Cuál es el rango de los valores?\n\n\n5\nisnull().sum()\n¿Hay datos faltantes?\n\n\n\n\n\n\nBuena práctica docente\n\n\nMuestra esta secuencia al inicio de cada notebook de análisis. Los estudiantes la internalizan como ritual."
+  },
+  {
+    "objectID": "02_colab/02_practica.html#selección-y-filtrado",
+    "href": "02_colab/02_practica.html#selección-y-filtrado",
+    "title": "Manipulación de datos con pandas",
+    "section": "Selección y filtrado",
+    "text": "Selección y filtrado\n\n\nSeleccionar columnas:\n# Una columna → Serie\ndf['nota']\n\n# Varias columnas → DataFrame\ndf[['nombre', 'nota', 'carrera']]\nFiltrar filas (condiciones):\n# Nota &gt;= 4\naprobados = df[df['nota'] &gt;= 4]\n\n# Múltiples condiciones\ncivil_buenos = df[\n    (df['carrera'] == 'Civil') &\n    (df['nota'] &gt;= 5.5)\n]\n\n# Valores en una lista\ncarreras = df[df['carrera'].isin(['Civil', 'Industrial'])]\n\nSelección por posición y por etiqueta:\n# Por posición (iloc)\ndf.iloc[0]      # primera fila\ndf.iloc[0:5]    # filas 0 a 4\ndf.iloc[:, 1:3] # columnas 1 a 2\n\n# Por etiqueta (loc)\ndf.loc[0]             # índice 0\ndf.loc[:, 'nota']     # toda la columna nota\ndf.loc[df['nota'] &gt; 5, ['nombre', 'nota']]\n\n\n\nloc vs iloc\n\n\nloc = por etiqueta (nombre de la columna, valor del índice)\niloc = por posición (número entero, como una lista de Python)"
+  },
+  {
+    "objectID": "02_colab/02_practica.html#limpieza-de-datos-los-casos-más-frecuentes",
+    "href": "02_colab/02_practica.html#limpieza-de-datos-los-casos-más-frecuentes",
+    "title": "Manipulación de datos con pandas",
+    "section": "Limpieza de datos: los casos más frecuentes",
+    "text": "Limpieza de datos: los casos más frecuentes\n\n\nManejar valores nulos:\n# Eliminar filas con cualquier nulo\ndf_limpio = df.dropna()\n\n# Eliminar solo si hay nulo en columnas específicas\ndf_limpio = df.dropna(subset=['nota', 'carrera'])\n\n# Rellenar con un valor\ndf['nota'].fillna(df['nota'].mean(), inplace=True)\n\n# Rellenar con método\ndf['nota'].fillna(method='ffill', inplace=True)\nDuplicados:\ndf.duplicated().sum()        # cuántos hay\ndf = df.drop_duplicates()   # eliminar\n\nTipos de datos:\n# Convertir columna a número\ndf['nota'] = pd.to_numeric(df['nota'], errors='coerce')\n\n# Convertir a fecha\ndf['fecha'] = pd.to_datetime(df['fecha'])\n\n# Convertir a categoría (eficiente para texto repetido)\ndf['carrera'] = df['carrera'].astype('category')\nRenombrar columnas:\ndf = df.rename(columns={\n    'nota_final': 'nota',\n    'nombre_alumno': 'nombre'\n})"
+  },
+  {
+    "objectID": "02_colab/02_practica.html#transformaciones-apply-map-y-asignación",
+    "href": "02_colab/02_practica.html#transformaciones-apply-map-y-asignación",
+    "title": "Manipulación de datos con pandas",
+    "section": "Transformaciones: apply, map y asignación",
+    "text": "Transformaciones: apply, map y asignación\n\n\nCrear columnas nuevas:\n# Operación directa\ndf['nota_ponderada'] = df['nota'] * 0.7 + df['extra'] * 0.3\n\n# Función condicional con apply\ndef letra(nota):\n    if nota &gt;= 5.5: return 'A'\n    elif nota &gt;= 4.0: return 'B'\n    else: return 'F'\n\ndf['letra'] = df['nota'].apply(letra)\n\n# Con lambda (funciones cortas)\ndf['aprobado'] = df['nota'].apply(lambda x: x &gt;= 4.0)\n\nOperaciones de texto:\n# Minúsculas, strip, reemplazar\ndf['nombre'] = df['nombre'].str.lower().str.strip()\ndf['email'] = df['email'].str.replace('@correo.cl', '@usm.cl')\n\n# Extraer parte de texto\ndf['apellido'] = df['nombre'].str.split(' ').str[-1]\n\n\n\napply vs operaciones vectorizadas\n\n\nCuando puedes, usa operaciones de pandas directas (más rápidas). Usa apply cuando necesitas lógica compleja que no se puede vectorizar."
+  },
+  {
+    "objectID": "02_colab/02_practica.html#agrupación-y-agregación-groupby",
+    "href": "02_colab/02_practica.html#agrupación-y-agregación-groupby",
+    "title": "Manipulación de datos con pandas",
+    "section": "Agrupación y agregación: groupby",
+    "text": "Agrupación y agregación: groupby\n\n\nPregunta típica: “¿Cuál es la nota promedio por carrera?”\n# Promedio de nota por carrera\ndf.groupby('carrera')['nota'].mean()\n\n# Múltiples métricas\nresumen = df.groupby('carrera').agg(\n    promedio=('nota', 'mean'),\n    minimo=('nota', 'min'),\n    maximo=('nota', 'max'),\n    conteo=('nota', 'count')\n)\n\n# Dos niveles de agrupación\ndf.groupby(['carrera', 'semestre'])['nota'].mean()\n\nPivot tables:\ntabla = df.pivot_table(\n    values='nota',\n    index='carrera',\n    columns='semestre',\n    aggfunc='mean'\n)\n\n\n\ngroupby + reset_index()\n\n\nDespués de un groupby, el resultado tiene el grupo como índice. Usa .reset_index() para convertirlo en DataFrame normal y poder graficar directamente.\npromedios = df.groupby('carrera')['nota'].mean().reset_index()"
+  },
+  {
+    "objectID": "02_colab/02_practica.html#merge-y-concatenación-de-dataframes",
+    "href": "02_colab/02_practica.html#merge-y-concatenación-de-dataframes",
+    "title": "Manipulación de datos con pandas",
+    "section": "Merge y concatenación de DataFrames",
+    "text": "Merge y concatenación de DataFrames\n\n\nMerge (equivalente a JOIN en SQL):\n# Inner join (solo filas que coinciden en ambos)\ndf_merge = pd.merge(df_notas, df_estudiantes,\n                    on='id_alumno', how='inner')\n\n# Left join (todas las filas de df_notas)\ndf_merge = pd.merge(df_notas, df_estudiantes,\n                    on='id_alumno', how='left')\n\n# Columnas con nombres distintos\ndf_merge = pd.merge(df_a, df_b,\n                    left_on='id', right_on='alumno_id')\n\nConcatenación (apilar DataFrames):\n# Apilar verticalmente (mismo formato)\ndf_total = pd.concat([df_2024, df_2025],\n                     ignore_index=True)\n\n# Agregar columna para identificar origen\ndf_2024['año'] = 2024\ndf_2025['año'] = 2025\ndf_total = pd.concat([df_2024, df_2025])\n\n\n\nmerge vs concat\n\n\nmerge = unir por columna clave (como JOIN)\nconcat = apilar DataFrames (como UNION ALL)"
+  },
+  {
+    "objectID": "02_colab/02_practica.html#exportar-resultados",
+    "href": "02_colab/02_practica.html#exportar-resultados",
+    "title": "Manipulación de datos con pandas",
+    "section": "Exportar resultados",
+    "text": "Exportar resultados\n\n\nGuardar el análisis:\n# CSV\ndf.to_csv('resultados.csv', index=False)\n\n# Excel\ndf.to_excel('resultados.xlsx',\n            sheet_name='Análisis',\n            index=False)\n\n# Parquet (eficiente para datos grandes)\ndf.to_parquet('resultados.parquet')\nDescargar desde Colab:\nfrom google.colab import files\nfiles.download('resultados.csv')\n\nPipeline completo típico:\n# 1. Cargar\ndf = pd.read_csv(url)\n\n# 2. Explorar\ndf.info()\ndf.describe()\n\n# 3. Limpiar\ndf = df.dropna(subset=['nota'])\ndf['nota'] = pd.to_numeric(df['nota'])\n\n# 4. Transformar\ndf['aprobado'] = df['nota'] &gt;= 4.0\n\n# 5. Analizar\nresumen = df.groupby('carrera').agg(...)\n\n# 6. Exportar\nresumen.to_csv('resumen.csv', index=False)"
+  },
+  {
+    "objectID": "02_colab/02_practica.html#section-1",
+    "href": "02_colab/02_practica.html#section-1",
+    "title": "Manipulación de datos con pandas",
+    "section": "",
+    "text": "¿Preguntas?\n\nFrancisco Alfaro\nfralfaro@usm.cl\nDocencia Digital · UTFSM\n2026"
+  },
+  {
+    "objectID": "01_github/05_pages.html#section",
+    "href": "01_github/05_pages.html#section",
+    "title": "Automatización y Pages",
+    "section": "",
+    "text": "Automatización y Pages\nGitHub Actions, CI/CD y publicación de sitios docentes\n\n\nSesión 1 — GitHub para docencia\n\n\nFrancisco Alfaro\nDocencia Digital · UTFSM · 2026"
+  },
+  {
+    "objectID": "01_github/05_pages.html#la-promesa-de-la-automatización-docente",
+    "href": "01_github/05_pages.html#la-promesa-de-la-automatización-docente",
+    "title": "Automatización y Pages",
+    "section": "La promesa de la automatización docente",
+    "text": "La promesa de la automatización docente\n\n\n\n\nSubes el material de la semana 5 y en tres minutos está publicado en tu-username.github.io/mat281.\n\nSin pasos manuales, sin olvidar renderizar, sin inconsistencias entre lo que tienes local y lo que ven los estudiantes.\n\n\n\n\nLo que aprenderemos\n\n\nGitHub Actions = el motor de automatización\nGitHub Pages = el resultado visible\nJuntos = sitio del curso que se actualiza solo."
+  },
+  {
+    "objectID": "01_github/05_pages.html#github-actions-qué-es-y-cómo-funciona",
+    "href": "01_github/05_pages.html#github-actions-qué-es-y-cómo-funciona",
+    "title": "Automatización y Pages",
+    "section": "GitHub Actions: qué es y cómo funciona",
+    "text": "GitHub Actions: qué es y cómo funciona\n\n\nGitHub Actions permite definir workflows que se ejecutan en respuesta a eventos del repositorio.\nCada workflow = archivo YAML en .github/workflows/\n\n\n\n\n\ngraph LR\n    E[\"⚡ Evento\\npush a main\"]\n    W[\"📋 Workflow\\ndeploy.yml\"]\n    J[\"⚙️ Job\\nbuild-deploy\"]\n    S[\"📦 Steps\\ncheckout → setup → render → deploy\"]\n\n    E --&gt; W --&gt; J --&gt; S\n\n\n\n\n\n\n\nEstructura mínima de un workflow:\nname: Mi workflow\n\non:\n  push:\n    branches: [main]\n\njobs:\n  mi-job:\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Paso 1\n        uses: actions/checkout@v4\n\n      - name: Paso 2\n        run: echo \"¡Hola!\""
+  },
+  {
+    "objectID": "01_github/05_pages.html#eventos-que-disparan-workflows",
+    "href": "01_github/05_pages.html#eventos-que-disparan-workflows",
+    "title": "Automatización y Pages",
+    "section": "Eventos que disparan workflows",
+    "text": "Eventos que disparan workflows\non:\n  push:                    # cualquier push\n    branches: [main]       # solo al branch main\n    paths:                 # solo si cambian estos archivos\n      - 'lectures/**'\n      - '*.qmd'\n\n  pull_request:            # cuando se abre o actualiza un PR\n    branches: [main]\n\n  schedule:                # por horario (cron)\n    - cron: '0 9 * * 1'   # todos los lunes a las 9:00 UTC\n\n  workflow_dispatch:       # ejecución manual desde la interfaz web\n\n\n\nGitHub Actions es gratuito para repos públicos\n\n\nPara repositorios públicos: minutos ilimitados.\nPara repos privados: 2.000 min/mes en el plan gratuito — suficiente para uso docente."
+  },
+  {
+    "objectID": "01_github/05_pages.html#ci-verificar-que-los-notebooks-no-tienen-errores",
+    "href": "01_github/05_pages.html#ci-verificar-que-los-notebooks-no-tienen-errores",
+    "title": "Automatización y Pages",
+    "section": "CI: verificar que los notebooks no tienen errores",
+    "text": "CI: verificar que los notebooks no tienen errores\n\n\n¿Por qué importa?\nEs frustrante para un estudiante abrir el notebook de la semana 4 y encontrar un NameError en la celda 7 porque cambiaste el nombre de una variable sin actualizar las celdas que dependen de ella.\nSolución: ejecutar automáticamente todos los notebooks en cada push.\n# .github/workflows/check-notebooks.yml\nname: Verificar notebooks\n\non:\n  pull_request:\n    branches: [main]\n    paths:\n      - '**.ipynb'\n\njobs:\n  ejecutar-notebooks:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n\n      - uses: actions/setup-python@v5\n        with:\n          python-version: '3.11'\n          cache: 'pip'\n\n      - run: |\n          pip install -r requirements.txt\n          pip install jupyter nbconvert\n\n      - run: |\n          find . -name \"*.ipynb\" \\\n            -not -path \"./*solucion*\" \\\n            | xargs jupyter nbconvert \\\n                --to notebook \\\n                --execute \\\n                --inplace"
+  },
+  {
+    "objectID": "01_github/05_pages.html#github-pages-el-sitio-del-curso-en-la-web",
+    "href": "01_github/05_pages.html#github-pages-el-sitio-del-curso-en-la-web",
+    "title": "Automatización y Pages",
+    "section": "GitHub Pages: el sitio del curso en la web",
+    "text": "GitHub Pages: el sitio del curso en la web\n\n\nGitHub Pages convierte el contenido de un repositorio en un sitio web público, sin costo:\ntu-username.github.io/mat281-2025-1\nTres fuentes posibles:\n\n\n\nFuente\nCuándo usarla\n\n\n\n\nBranch main, carpeta /docs\nSitio simple, más directo\n\n\nBranch gh-pages dedicado\nSitio generado, separado del código\n\n\nGitHub Actions\nMás flexible, recomendado\n\n\n\n\n\n\n\nOpción más simple: desde /docs\n\n\nEn _quarto.yml:\nproject:\n  output-dir: docs\nRender → commit de docs/ → push → activar Pages en Settings.\nEn 1-2 minutos el sitio está online."
+  },
+  {
+    "objectID": "01_github/05_pages.html#deploy-automático-con-github-actions-recomendado",
+    "href": "01_github/05_pages.html#deploy-automático-con-github-actions-recomendado",
+    "title": "Automatización y Pages",
+    "section": "Deploy automático con GitHub Actions (recomendado)",
+    "text": "Deploy automático con GitHub Actions (recomendado)\n# .github/workflows/deploy-pages.yml\nname: Deploy Quarto a GitHub Pages\n\non:\n  push:\n    branches: [main]\n  workflow_dispatch:\n\npermissions:\n  contents: read\n  pages: write\n  id-token: write\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: quarto-dev/quarto-actions/setup@v2\n        with:\n          version: '1.5.57'\n      - uses: actions/setup-python@v5\n        with:\n          python-version: '3.11'\n          cache: 'pip'\n      - run: pip install -r requirements.txt\n      - uses: quarto-dev/quarto-actions/render@v2\n      - uses: actions/upload-pages-artifact@v3\n        with:\n          path: '_site'\n\n  deploy:\n    needs: build\n    runs-on: ubuntu-latest\n    environment:\n      name: github-pages\n    steps:\n      - uses: actions/deploy-pages@v4"
+  },
+  {
+    "objectID": "01_github/05_pages.html#el-flujo-end-to-end",
+    "href": "01_github/05_pages.html#el-flujo-end-to-end",
+    "title": "Automatización y Pages",
+    "section": "El flujo end-to-end",
+    "text": "El flujo end-to-end\n\n\n\n\n\nsequenceDiagram\n    participant D as 💻 Docente\n    participant G as 🐙 GitHub\n    participant A as ⚙️ Actions Runner\n    participant P as 🌐 GitHub Pages\n\n    D-&gt;&gt;G: git push (nuevo material)\n    G-&gt;&gt;A: dispara deploy-pages.yml\n    A-&gt;&gt;A: checkout + instala Quarto + Python\n    A-&gt;&gt;A: quarto render\n    A-&gt;&gt;P: deploy _site/\n    P-&gt;&gt;D: sitio actualizado en ~3 minutos\n    Note over D,P: Estudiantes ya pueden ver el nuevo material\n\n\n\n\n\n\n\n\n\nfreeze: auto para acelerar el build\n\n\nexecute:\n  freeze: auto\nQuarto guarda resultados en _freeze/. Si el código no cambió, no lo re-ejecuta. Build de 15 min → 3 min."
+  },
+  {
+    "objectID": "01_github/05_pages.html#secrets-credenciales-seguras-en-workflows",
+    "href": "01_github/05_pages.html#secrets-credenciales-seguras-en-workflows",
+    "title": "Automatización y Pages",
+    "section": "Secrets: credenciales seguras en workflows",
+    "text": "Secrets: credenciales seguras en workflows\n\n\nCuándo los necesitas:\n\nAcceder a una API de datos en el workflow\nAutenticar con un servidor institucional\nNotificar por Slack cuando se publica material\nAcceder a un repositorio privado de soluciones\n\nNunca pongas credenciales directamente en el YAML.\nConfigurar: Settings → Secrets and variables → Actions → New secret\n\nUsar en el workflow:\nsteps:\n  - name: Descargar datos\n    env:\n      API_KEY: ${{ secrets.API_KEY_DATOS }}\n    run: python scripts/descargar.py\nEn Python:\nimport os\napi_key = os.environ.get(\"API_KEY\")\n\n\n\nGITHUB_TOKEN\n\n\nToken automático que GitHub crea para cada run. No necesita configuración. Tiene permisos sobre el repo donde corre el workflow."
+  },
+  {
+    "objectID": "01_github/05_pages.html#github-copilot-asistencia-al-escribir-en-el-editor",
+    "href": "01_github/05_pages.html#github-copilot-asistencia-al-escribir-en-el-editor",
+    "title": "Automatización y Pages",
+    "section": "GitHub Copilot: asistencia al escribir en el editor",
+    "text": "GitHub Copilot: asistencia al escribir en el editor\n\n\nPara docentes, Copilot es útil para:\n\nGenerar código de ejemplo para notebooks de clase\nCompletar bloques YAML de Actions sin recordar la sintaxis\nEscribir celdas de Markdown con explicaciones de conceptos\nRefactorizar código para hacerlo más didáctico\nGenerar datos sintéticos para ejemplos\n\nAcceso: Con GitHub Education (Pro para docentes) está incluido sin costo adicional.\n→ education.github.com/teachers\n\nLas funciones más útiles en VS Code:\n\n\n\nFunción\nCómo activar\n\n\n\n\nCompletado inline\nEscribe, Tab para aceptar\n\n\n/explain\nExplica el código seleccionado\n\n\n/fix\nCorrección de un error\n\n\n/doc\nGenera documentación\n\n\nInline Chat\nCtrl+I directo en el editor\n\n\n\n\n\n\nCopilot no reemplaza la revisión\n\n\nComete errores en lógica estadística y matemática. Úsalo como acelerador, no como oracle."
+  },
+  {
+    "objectID": "01_github/05_pages.html#tiempos-típicos-de-build",
+    "href": "01_github/05_pages.html#tiempos-típicos-de-build",
+    "title": "Automatización y Pages",
+    "section": "Tiempos típicos de build",
+    "text": "Tiempos típicos de build\n\n\n\nContenido\nTiempo de deploy\n\n\n\n\nSolo .qmd con texto y tablas\n1-2 minutos\n\n\n.qmd con código Python (con freeze)\n2-4 minutos\n\n\n.qmd con código Python (sin freeze)\n5-15 minutos\n\n\nNotebooks Jupyter + Quarto\n8-20 minutos\n\n\n\n\nOptimizar:\n# Cache de dependencias Python\n- uses: actions/setup-python@v5\n  with:\n    python-version: '3.11'\n    cache: 'pip'   # cachea ~/.cache/pip entre runs\n\n# Cache de Quarto freeze\n- uses: actions/cache@v4\n  with:\n    path: _freeze\n    key: quarto-freeze-${{ hashFiles('**/*.qmd') }}"
+  },
+  {
+    "objectID": "01_github/05_pages.html#checklist-del-repositorio-completo",
+    "href": "01_github/05_pages.html#checklist-del-repositorio-completo",
+    "title": "Automatización y Pages",
+    "section": "Checklist del repositorio completo",
+    "text": "Checklist del repositorio completo\nRepositorio base:\n☐ README.md con descripción, estructura y contacto\n☐ LICENSE (MIT + mención CC BY para contenido)\n☐ .gitignore para Python + R + Quarto\n☐ requirements.txt con todas las dependencias\n\nGitHub Pages:\n☐ Settings → Pages → Source configurado (Actions)\n☐ Sitio accesible en tu-username.github.io/mat281\n☐ Navbar con links a clases, labs y tareas\n\nGitHub Actions:\n☐ check-notebooks.yml activo en PRs\n☐ deploy-pages.yml publicando en pushes a main\n☐ Primer deploy exitoso (pestaña Actions, todo verde ✅)\n\nColaboración:\n☐ Ayudantes con acceso write\n☐ Branch protection en main (requiere PR)\n☐ GitHub Classroom configurado para la primera tarea"
+  },
+  {
+    "objectID": "01_github/05_pages.html#section-1",
+    "href": "01_github/05_pages.html#section-1",
+    "title": "Automatización y Pages",
+    "section": "",
+    "text": "¿Preguntas?\n\nFrancisco Alfaro\nfralfaro@usm.cl\nDocencia Digital · UTFSM\n2026"
+  },
+  {
+    "objectID": "01_github/03_perfil.html#section",
+    "href": "01_github/03_perfil.html#section",
+    "title": "Tu perfil en GitHub",
+    "section": "",
+    "text": "Tu perfil en GitHub\nPreséntate como estudiante con un perfil profesional\n\n\nSesión 3 — Módulo GitHub\n\n\nFrancisco Alfaro Medina & Patricio Olivares Roncagliolo\nAprende USM 2026 · UTFSM"
+  },
+  {
+    "objectID": "01_github/03_perfil.html#tu-perfil-es-tu-tarjeta-de-presentación-digital",
+    "href": "01_github/03_perfil.html#tu-perfil-es-tu-tarjeta-de-presentación-digital",
+    "title": "Tu perfil en GitHub",
+    "section": "Tu perfil es tu tarjeta de presentación digital",
+    "text": "Tu perfil es tu tarjeta de presentación digital\nCuando postulas a una práctica o compartes tu trabajo:\n\n\n¿Qué ve alguien en tu perfil?\n\nTu foto y nombre\nREADME de perfil ← tú lo controlas\nRepositorios fijados\nGráfico de actividad\nEstadísticas\n\n\n\n\n\nLo más importante\n\n\nEl README de perfil es lo único que controlas completamente.\nUn perfil simple pero actualizado es mejor que uno elaborado y abandonado."
+  },
+  {
+    "objectID": "01_github/03_perfil.html#cómo-activar-el-readme-de-perfil",
+    "href": "01_github/03_perfil.html#cómo-activar-el-readme-de-perfil",
+    "title": "Tu perfil en GitHub",
+    "section": "Cómo activar el README de perfil",
+    "text": "Cómo activar el README de perfil\n\n\n\nTruco especial de GitHub\n\n\nSi creas un repositorio con exactamente el mismo nombre que tu usuario, el README aparece en tu perfil.\n\n\n\nPasos:\n\n+ → New repository\nNombre: tu-usuario (idéntico a tu nombre de usuario)\nMarca Public + Add a README file\nClic en Create repository\n\nGitHub mostrará: “tu-usuario/tu-usuario is a special repository” ✅"
+  },
+  {
+    "objectID": "01_github/03_perfil.html#qué-incluir-en-tu-readme-de-perfil",
+    "href": "01_github/03_perfil.html#qué-incluir-en-tu-readme-de-perfil",
+    "title": "Tu perfil en GitHub",
+    "section": "Qué incluir en tu README de perfil",
+    "text": "Qué incluir en tu README de perfil\n# Hola, soy Juan Pérez 👋\n\nEstudiante de Ing. Civil Informática en la UTFSM.\nMe interesa la ciencia de datos y el desarrollo web.\n\n## Sobre mí\n- 🎓 Estudiante de 2° año en UTFSM\n- 📍 Valparaíso, Chile\n- 📚 Aprendiendo Python y análisis de datos\n- 📫 juan.perez@usm.cl\n\n## Mis herramientas\n![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)\n![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)"
+  },
+  {
+    "objectID": "01_github/03_perfil.html#repositorios-fijados-muestra-lo-mejor",
+    "href": "01_github/03_perfil.html#repositorios-fijados-muestra-lo-mejor",
+    "title": "Tu perfil en GitHub",
+    "section": "Repositorios fijados: muestra lo mejor",
+    "text": "Repositorios fijados: muestra lo mejor\nPuedes fijar hasta 6 repositorios en tu portada.\n\n\nQué fijar:\n\nTus mejores trabajos de cursos\nProyectos propios que muestren habilidades\nTu sitio de portafolio (cuando lo tengas)\n\n\nQué NO fijar:\n\nRepositorios vacíos\nForks sin contribuciones propias\nTareas sin completar\n\n\nCómo fijarlos: Perfil → Customize your pins → selecciona y guarda"
+  },
+  {
+    "objectID": "01_github/03_perfil.html#actividad-consistente-actividad-explosiva",
+    "href": "01_github/03_perfil.html#actividad-consistente-actividad-explosiva",
+    "title": "Tu perfil en GitHub",
+    "section": "Actividad consistente > actividad explosiva",
+    "text": "Actividad consistente &gt; actividad explosiva\n\n\nEl gráfico de cuadraditos verdes muestra tu actividad diaria.\nNo necesitas tenerlo completamente verde.\nLo que importa: regularidad — algunos commits frecuentes son mejor que muchos commits un solo día y luego nada.\n\n\n\n\nTip práctico\n\n\nCada vez que terminas algo, haz un commit. Aunque sea pequeño.\nEl hábito construye el perfil."
+  },
+  {
+    "objectID": "01_github/01_esencial.html#section",
+    "href": "01_github/01_esencial.html#section",
+    "title": "Git y GitHub esencial",
+    "section": "",
+    "text": "Git y GitHub esencial\nControl de versiones para el docente universitario\n\n\nSesión 1 — GitHub para docencia\n\n\nFrancisco Alfaro\nDocencia Digital · UTFSM · 2026"
+  },
+  {
+    "objectID": "01_github/01_esencial.html#ya-resolviste-este-problema-de-la-peor-manera",
+    "href": "01_github/01_esencial.html#ya-resolviste-este-problema-de-la-peor-manera",
+    "title": "Git y GitHub esencial",
+    "section": "¿Ya resolviste este problema… de la peor manera?",
+    "text": "¿Ya resolviste este problema… de la peor manera?\n\n\nReconoce alguno de estos:\n\napuntes_final_v3_ESTE_SI_corregido2.docx\nEmail: “ignora la versión anterior, va esta”\nPerdiste una semana de trabajo por guardar encima del archivo equivocado\nTu ayudante modificó el archivo que tú también estabas editando\n\n\n\n\n\nLa solución existe\n\n\nGit resuelve ese problema.\nGitHub es donde ese trabajo vive, se comparte y colabora."
+  },
+  {
+    "objectID": "01_github/01_esencial.html#git-vs-github-la-distinción-que-confunde-a-todos",
+    "href": "01_github/01_esencial.html#git-vs-github-la-distinción-que-confunde-a-todos",
+    "title": "Git y GitHub esencial",
+    "section": "Git vs GitHub: la distinción que confunde a todos",
+    "text": "Git vs GitHub: la distinción que confunde a todos\n\n\nGit\n\nSoftware que corre en tu computador\nFunciona completamente sin internet\nLleva el historial de cambios de tus archivos\n\nGitHub\n\nPlataforma web que almacena repos Git en la nube\nAgrega colaboración: PRs, Issues, Pages, Actions\nSin Git, GitHub no existe\n\n\n\n\n\n\n\ngraph LR\n    L[\"💻 Tu computador\\nGit local\"] -- \"git push\" --&gt; R[\"☁️ GitHub\\nrepositorio remoto\"]\n    R -- \"git pull\" --&gt; L\n    R -- \"git clone\" --&gt; C[\"💻 Tu ayudante\"]\n    C -- \"git push\" --&gt; R\n\n\n\n\n\n\n\n\n\nLa analogía\n\n\nGit = tu sistema de archivos local. GitHub = Google Drive diseñado para código con herramientas de colaboración."
+  },
+  {
+    "objectID": "01_github/01_esencial.html#los-tres-conceptos-clave-repositorio-commit-branch",
+    "href": "01_github/01_esencial.html#los-tres-conceptos-clave-repositorio-commit-branch",
+    "title": "Git y GitHub esencial",
+    "section": "Los tres conceptos clave: repositorio, commit, branch",
+    "text": "Los tres conceptos clave: repositorio, commit, branch\n\n\nRepositorio\nUna carpeta que Git rastrea. Contiene tus archivos + una carpeta oculta .git/ con todo el historial.\nmat281-2025-1/\n├── .git/        ← historial\n├── README.md\n├── lectures/\n└── labs/\n\nCommit\nFotografía de todos tus archivos en un momento específico.\n\nHash único (a3f2c19)\nQuién, cuándo, qué mensaje\nReferencia al commit anterior\n\n\nBranch\nLínea paralela de desarrollo. Trabajas en una versión sin afectar la otra.\n\nmain → lo que ven los estudiantes\ndev → material en preparación\nsemestre-2025-2 → siguiente semestre"
+  },
+  {
+    "objectID": "01_github/01_esencial.html#el-flujo-de-los-tres-estados",
+    "href": "01_github/01_esencial.html#el-flujo-de-los-tres-estados",
+    "title": "Git y GitHub esencial",
+    "section": "El flujo de los tres estados",
+    "text": "El flujo de los tres estados\n\n\n\n\n\ngraph LR\n    W[\"📁 Working directory\\narchivos que editas\"]\n    S[\"📋 Staging area\\nlo que vas a commitear\"]\n    R[\"🗄️ Repositorio\\nhistorial permanente\"]\n\n    W -- \"git add archivo.qmd\" --&gt; S\n    S -- \"git commit -m 'mensaje'\" --&gt; R\n    R -- \"git checkout / git restore\" --&gt; W\n\n\n\n\n\n\n\n\n¿Por qué el staging?\nPuedes modificar 5 archivos pero commitear solo 2. Construyes commits lógicos y coherentes aunque hayas modificado muchas cosas a la vez.\n\n\n\n\nUna vez commiteado\n\n\nEstá guardado. Puedes volver a cualquier punto del historial en cualquier momento."
+  },
+  {
+    "objectID": "01_github/01_esencial.html#configuración-inicial-una-sola-vez",
+    "href": "01_github/01_esencial.html#configuración-inicial-una-sola-vez",
+    "title": "Git y GitHub esencial",
+    "section": "Configuración inicial (una sola vez)",
+    "text": "Configuración inicial (una sola vez)\ngit config --global user.name \"Juan Pérez\"\ngit config --global user.email \"juan.perez@usm.cl\"\ngit config --global core.editor \"code --wait\"   # VS Code como editor\ngit config --global init.defaultBranch main\n\n\nVerificar:\ngit config --list\n# user.name=Juan Pérez\n# user.email=juan.perez@usm.cl\n# init.defaultbranch=main\n\n\n\n\nEmail institucional\n\n\nUsa tu @usm.cl. Es lo que aparece en el historial y lo que GitHub usa para asociar commits a tu perfil."
+  },
+  {
+    "objectID": "01_github/01_esencial.html#el-ciclo-de-trabajo-diario",
+    "href": "01_github/01_esencial.html#el-ciclo-de-trabajo-diario",
+    "title": "Git y GitHub esencial",
+    "section": "El ciclo de trabajo diario",
+    "text": "El ciclo de trabajo diario\n# 1. Antes de empezar: traer cambios del remoto\ngit pull\n\n# 2. Trabajar normalmente... editas lectures/semana03.qmd\n\n# 3. Ver qué cambió\ngit status\n\n# 4. Ver exactamente qué líneas cambiaron\ngit diff lectures/semana03.qmd\n\n# 5. Agregar al staging\ngit add lectures/semana03.qmd\n\n# 6. Crear el commit\ngit commit -m \"docs: agrego material semana 3 - regresión lineal\"\n\n# 7. Subir al remoto\ngit push\n\n\n\nEl ritmo ideal\n\n\npull → edita → status → add → commit → push. Siempre así."
+  },
+  {
+    "objectID": "01_github/01_esencial.html#problemas-docentes-resueltos-con-git",
+    "href": "01_github/01_esencial.html#problemas-docentes-resueltos-con-git",
+    "title": "Git y GitHub esencial",
+    "section": "Problemas docentes resueltos con Git",
+    "text": "Problemas docentes resueltos con Git\n\n\n\n\n\n\n\nProblema docente\nSolución con Git\n\n\n\n\n“¿Cuál era la versión del enunciado que entregué?”\ngit log muestra historial completo con fechas\n\n\n“Mi ayudante modificó el archivo que yo editaba”\nBranches separados + merge controlado\n\n\n“Quiero probar un cambio grande sin romper lo que funciona”\nBranch nuevo, sin tocar main\n\n\n“El estudiante dice que el enunciado era diferente”\ngit diff muestra qué cambió y cuándo\n\n\n“Perdí el archivo”\nEstá en el repositorio remoto, intacto\n\n\n“Quiero reutilizar el material el próximo semestre”\nTags por semestre + repositorio archivado"
+  },
+  {
+    "objectID": "01_github/01_esencial.html#el-readme.md-portada-del-repositorio",
+    "href": "01_github/01_esencial.html#el-readme.md-portada-del-repositorio",
+    "title": "Git y GitHub esencial",
+    "section": "El README.md: portada del repositorio",
+    "text": "El README.md: portada del repositorio\n\n\nGitHub renderiza el README automáticamente. Debe responder en 30 segundos: ¿qué es esto, para quién es, cómo se usa?\nEstructura recomendada:\n# MAT281 — Nombre del Curso\n**Semestre:** 2025-1\n**Docente:** Juan Pérez\n\n## Descripción\n...\n\n## Estructura del repositorio\n...\n\n## Cómo usar\ngit clone https://github.com/...\n\n## Licencia\nMIT + CC BY 4.0\n\nHerramientas útiles:\n\nreadme.so → editor visual\nshields.io → badges\n\n\n\n\nEl README importa\n\n\nEs lo primero que ven tus estudiantes, tu ayudante y cualquier colega que acceda al repositorio."
+  },
+  {
+    "objectID": "01_github/01_esencial.html#el-.gitignore-qué-no-rastrear",
+    "href": "01_github/01_esencial.html#el-.gitignore-qué-no-rastrear",
+    "title": "Git y GitHub esencial",
+    "section": "El .gitignore: qué NO rastrear",
+    "text": "El .gitignore: qué NO rastrear\n\n\n¿Por qué importa?\nSin .gitignore, Git rastrea todo — incluyendo basura que no debería estar en el repositorio.\nLo que debe ignorarse:\n# Python\n__pycache__/\n.ipynb_checkpoints/\n.env\n\n# Quarto\n_site/\n_book/\n_freeze/\n\n# OS\n.DS_Store\nThumbs.db\n\n# NUNCA subir\n*.key\ncredentials.json\ntoken.json\n\n\n\n\nRegla de oro\n\n\nSi ya subiste un archivo sensible, borrarlo en un commit no es suficiente — sigue en el historial.\nRevisa siempre con git status antes de git add .\n\n\n\nGenerador automático: gitignore.io"
+  },
+  {
+    "objectID": "01_github/01_esencial.html#issues-y-projects-gestión-docente-en-github",
+    "href": "01_github/01_esencial.html#issues-y-projects-gestión-docente-en-github",
+    "title": "Git y GitHub esencial",
+    "section": "Issues y Projects: gestión docente en GitHub",
+    "text": "Issues y Projects: gestión docente en GitHub\n\n\nIssues = unidades de trabajo pendiente\n✅ Preparar guía lab 4\n🐛 Error en celda 7 del notebook semana 3\n💡 Agregar ejercicio de validación cruzada\n📅 Actualizar dataset semana 5\nCerrar desde un commit:\ngit commit -m \"fix: corrijo error en notebook semana 3\n\nCloses #12\"\nAl hacer push, GitHub cierra el Issue #12 automáticamente.\n\nGitHub Projects = tablero Kanban\n📋 MAT281 — Planificación 2025-1\n\n│  Backlog  │  En curso  │  Publicado  │\n├───────────┼────────────┼─────────────┤\n│  Lab 5    │  Semana 6  │  Semanas 1-5│\n│  Lab 6    │            │  Labs 1-4   │\n\n\n\nPlanificación semestral\n\n\nCrea un Issue por cada semana de material al inicio del semestre. Al final, el historial de Issues cerrados es un registro completo de todo lo preparado."
+  },
+  {
+    "objectID": "01_github/01_esencial.html#licencias-declarar-qué-pueden-hacer-otros-con-tu-material",
+    "href": "01_github/01_esencial.html#licencias-declarar-qué-pueden-hacer-otros-con-tu-material",
+    "title": "Git y GitHub esencial",
+    "section": "Licencias: declarar qué pueden hacer otros con tu material",
+    "text": "Licencias: declarar qué pueden hacer otros con tu material\n\n\nSin licencia → todos los derechos reservados por defecto, aunque el repositorio sea público.\nPara código (notebooks, scripts):\n\n\n\nLicencia\nRestricción\n\n\n\n\nMIT\nSolo mantener copyright\n\n\nApache 2.0\nMIT + patentes\n\n\nGPL v3\nDerivados también GPL\n\n\n\n→ Recomendación: MIT\n\nPara contenido (apuntes, slides):\nCreative Commons — combina módulos:\n\nBY = dar crédito al autor\nSA = derivados con misma licencia\nNC = solo uso no comercial\nND = sin derivados\n\n→ Recomendación: CC BY 4.0\n\n\n\nLa combinación estándar en docencia\n\n\nCódigo:    MIT License\nContenido: CC BY 4.0"
+  },
+  {
+    "objectID": "01_github/01_esencial.html#el-repositorio-mínimo-de-un-curso",
+    "href": "01_github/01_esencial.html#el-repositorio-mínimo-de-un-curso",
+    "title": "Git y GitHub esencial",
+    "section": "El repositorio mínimo de un curso",
+    "text": "El repositorio mínimo de un curso\nmat281-2025-1/\n├── .gitignore          # archivos excluidos\n├── LICENSE             # MIT para el código\n├── README.md           # portada del repositorio\n├── lectures/           # material de clases\n│   └── semana01/\n│       ├── notebook.ipynb\n│       └── slides.qmd\n├── labs/               # guías de laboratorio\n│   └── lab01/\n│       ├── enunciado.qmd\n│       └── datos.csv\n├── assignments/        # tareas\n└── datasets/\n    └── raw/.gitkeep    # placeholder (datos en .gitignore)\n\n\n\nFlujo semanal\n\n\ngit pull → editar → git add → git commit → git push → sitio actualizado."
+  },
+  {
+    "objectID": "01_github/01_esencial.html#section-1",
+    "href": "01_github/01_esencial.html#section-1",
+    "title": "Git y GitHub esencial",
+    "section": "",
+    "text": "¿Preguntas?\n\nFrancisco Alfaro\nfralfaro@usm.cl\nDocencia Digital · UTFSM\n2026"
+  },
+  {
+    "objectID": "00_intro/bienvenida.html#section",
+    "href": "00_intro/bienvenida.html#section",
+    "title": "Bienvenida al Curso",
+    "section": "",
+    "text": "Bienvenida al Curso\nDocencia digital para el académico universitario\n\n\n¿Por qué estas herramientas? ¿Por qué ahora? ¿Por qué tú?\n\n\nFrancisco Alfaro\nDocencia Digital · UTFSM · 2026"
+  },
+  {
+    "objectID": "00_intro/bienvenida.html#la-pregunta-que-abre-todo",
+    "href": "00_intro/bienvenida.html#la-pregunta-que-abre-todo",
+    "title": "Bienvenida al Curso",
+    "section": "La pregunta que abre todo",
+    "text": "La pregunta que abre todo\n\n\n\n\n“¿Cuándo fue la última vez que cambiaste algo fundamental en cómo enseñas?”\n\n\n\n\n\nEsta capacitación\n\n\nNo es sobre tecnología por sí sola — es sobre esa pregunta."
+  },
+  {
+    "objectID": "00_intro/bienvenida.html#el-mundo-cambió.-la-universidad-más-lento.",
+    "href": "00_intro/bienvenida.html#el-mundo-cambió.-la-universidad-más-lento.",
+    "title": "Bienvenida al Curso",
+    "section": "El mundo cambió. La universidad, más lento.",
+    "text": "El mundo cambió. La universidad, más lento.\n\n\nHoy cualquier persona puede:\n\nEjecutar código en la nube sin instalar nada\nPublicar un sitio web en minutos, gratis\nGenerar documentos académicos desde el navegador\nColaborar en tiempo real con el mundo\nConsultar a una IA sobre casi cualquier tema\n\n\nEn muchas aulas universitarias:\n\nDiapositivas en PowerPoint\nDocumentos Word enviados por correo\nEvaluaciones en papel o formularios básicos\nEl mismo flujo de trabajo de hace 15 años\n\n\n\n\nNo es un juicio\n\n\nEs una brecha real — y tiene explicación."
+  },
+  {
+    "objectID": "00_intro/bienvenida.html#por-qué-cuesta-tanto-adoptar-nuevas-herramientas",
+    "href": "00_intro/bienvenida.html#por-qué-cuesta-tanto-adoptar-nuevas-herramientas",
+    "title": "Bienvenida al Curso",
+    "section": "¿Por qué cuesta tanto adoptar nuevas herramientas?",
+    "text": "¿Por qué cuesta tanto adoptar nuevas herramientas?\n\n\n\n\n\n\n\nObstáculo\nPor qué ocurre\n\n\n\n\nTiempo escaso\nDocencia + investigación + gestión + extensión\n\n\nCurva de entrada alta\nLaTeX, Git, Quarto son intimidantes sin acompañamiento\n\n\nFalta de referentes\nLa innovación se contagia de un colega, no de un paper\n\n\nIncentivos desalineados\nPublicar importa más que enseñar bien en la academia\n\n\nMiedo a quedar en evidencia\nProbar algo nuevo en clase implica riesgo de imagen\n\n\n\n\n\n\n\nLa propuesta de este curso\n\n\nReconocer esas barreras — y apuntar directamente a bajarlas."
+  },
+  {
+    "objectID": "00_intro/bienvenida.html#el-momento-de-la-ia",
+    "href": "00_intro/bienvenida.html#el-momento-de-la-ia",
+    "title": "Bienvenida al Curso",
+    "section": "El momento de la IA",
+    "text": "El momento de la IA\n\n\n2022 → ChatGPT → cambio irreversible\nHerramientas como ChatGPT, Gemini, Claude y NotebookLM pasaron de ser curiosidades a ser parte del flujo cotidiano de estudiantes universitarios.\nTensiones reales en el aula:\n\nEstudiantes que entregan trabajos asistidos por IA sin declararlo\nDocentes que prohíben sin tener política clara\nEvaluaciones diseñadas para un mundo que ya no existe\nDesconcierto sobre qué significa “aprender” hoy\n\n\n\n\n\nLa postura de este curso\n\n\nIgnorar este escenario no es una opción.\nEntender la IA — y saber cómo posicionarse — es parte de lo que aprenderemos."
+  },
+  {
+    "objectID": "00_intro/bienvenida.html#las-cinco-herramientas-del-ecosistema",
+    "href": "00_intro/bienvenida.html#las-cinco-herramientas-del-ecosistema",
+    "title": "Bienvenida al Curso",
+    "section": "Las cinco herramientas del ecosistema",
+    "text": "Las cinco herramientas del ecosistema\n\n\n\n\n\n\n\nHerramienta\nPara qué sirve en docencia\n\n\n\n\nGitHub\nOrganizar y versionar material, colaborar con ayudantes\n\n\nGoogle Colab\nEjecutar código en la nube, notebooks interactivos para clases\n\n\nOverleaf / LaTeX\nDocumentos académicos con formato profesional\n\n\nQuarto\nSitios, reportes, presentaciones reproducibles desde un solo archivo\n\n\nIA\nPlanificación, generación de materiales, retroalimentación\n\n\n\n\n\n\n\n¿Por qué estas y no otras?\n\n\nSe integran entre sí, son gratuitas o freemium, tienen comunidades activas y curva de aprendizaje razonable para partir de cero."
+  },
+  {
+    "objectID": "00_intro/bienvenida.html#a-quién-está-dirigido",
+    "href": "00_intro/bienvenida.html#a-quién-está-dirigido",
+    "title": "Bienvenida al Curso",
+    "section": "¿A quién está dirigido?",
+    "text": "¿A quién está dirigido?\n\n\nPrincipalmente:\n\nDocentes universitarios que quieren modernizar sus materiales sin invertir meses\nAyudantes y estudiantes de posgrado que producen material docente\n\nTambién:\n\nProfesionales que enseñan fuera de la academia\nCualquier persona curiosa sobre el ecosistema educativo digital\n\n\n\n\n\nRequisito de entrada\n\n\nNo se requiere conocimiento previo de programación.\nSí se requiere disposición a probar cosas nuevas y tolerancia a los errores del camino."
+  },
+  {
+    "objectID": "00_intro/bienvenida.html#estructura-del-curso-seis-sesiones-seis-productos",
+    "href": "00_intro/bienvenida.html#estructura-del-curso-seis-sesiones-seis-productos",
+    "title": "Bienvenida al Curso",
+    "section": "Estructura del curso: seis sesiones, seis productos",
+    "text": "Estructura del curso: seis sesiones, seis productos\n\n\n\nSesión\nHerramienta\nProducto al finalizar\n\n\n\n\n0\nIntroducción\nMapa del ecosistema y motivación\n\n\n1\nGitHub\nRepositorio del curso publicado\n\n\n2\nGoogle Colab\nNotebook interactivo para clase práctica\n\n\n3\nOverleaf / LaTeX\nGuía de ejercicios en PDF profesional\n\n\n4\nQuarto\nSitio web del curso en GitHub Pages\n\n\n5\nIA\nRecurso pedagógico generado con IA\n\n\n\n\nCada sesión combina explicación conceptual, demostración en vivo y actividad aplicada."
+  },
+  {
+    "objectID": "00_intro/bienvenida.html#la-lógica-del-ecosistema",
+    "href": "00_intro/bienvenida.html#la-lógica-del-ecosistema",
+    "title": "Bienvenida al Curso",
+    "section": "La lógica del ecosistema",
+    "text": "La lógica del ecosistema\n\n\n\n\n\ngraph LR\n    G[\"GitHub\\nversión y colaboración\"]\n    C[\"Google Colab\\ncódigo en la nube\"]\n    L[\"LaTeX / Overleaf\\ndocumentos PDF\"]\n    Q[\"Quarto\\npublicación web\"]\n    I[\"IA\\ngeneración asistida\"]\n\n    G --&gt; Q\n    C --&gt; Q\n    L --&gt; Q\n    I --&gt; G\n    I --&gt; C\n    I --&gt; L\n    Q --&gt; G\n\n\n\n\n\n\nTodo se conecta. El repositorio GitHub almacena el material de Quarto. Colab se embebe en el sitio. LaTeX produce el PDF adjunto. La IA acelera cada paso."
+  },
+  {
+    "objectID": "00_intro/bienvenida.html#una-nota-honesta-antes-de-comenzar",
+    "href": "00_intro/bienvenida.html#una-nota-honesta-antes-de-comenzar",
+    "title": "Bienvenida al Curso",
+    "section": "Una nota honesta antes de comenzar",
+    "text": "Una nota honesta antes de comenzar\n\n\n\n“La tecnología no mejora la docencia por sí sola.\nUna clase mal diseñada sigue siendo una clase mal diseñada aunque use las herramientas más modernas del mercado.\nLo que sí puede hacer la tecnología — bien usada — es reducir la fricción: entre la idea y el material terminado, entre el docente y el estudiante, entre el conocimiento y quien lo necesita.”\n\n\n\n\nEl espíritu del curso\n\n\nNo se trata de adoptar tecnología por moda.\nSe trata de recuperar tiempo, mejorar calidad y llegar mejor a quienes enseñamos."
+  },
+  {
+    "objectID": "00_intro/bienvenida.html#pregunta-de-cierre-diagnóstico-en-vivo",
+    "href": "00_intro/bienvenida.html#pregunta-de-cierre-diagnóstico-en-vivo",
+    "title": "Bienvenida al Curso",
+    "section": "Pregunta de cierre — diagnóstico en vivo",
+    "text": "Pregunta de cierre — diagnóstico en vivo\n\n\n\n\n“¿Cuál es el mayor dolor de cabeza que tienes hoy en la producción de material para tus cursos?”\n\n\n\n\n\nPor qué esta pregunta importa\n\n\nLas respuestas de hoy son el hilo conductor del resto de la capacitación.\nNo hay respuesta incorrecta."
+  },
+  {
+    "objectID": "00_intro/bienvenida.html#section-1",
+    "href": "00_intro/bienvenida.html#section-1",
+    "title": "Bienvenida al Curso",
+    "section": "",
+    "text": "¿Preguntas?\n\nFrancisco Alfaro\nfralfaro@usm.cl\nDocencia Digital · UTFSM\n2026"
+  },
+  {
+    "objectID": "01_github/02_repositorio.html#section",
+    "href": "01_github/02_repositorio.html#section",
+    "title": "Tu repositorio académico",
+    "section": "",
+    "text": "Tu repositorio académico\nCómo estructurar y documentar tu trabajo en GitHub\n\n\nSesión 2 — Módulo GitHub\n\n\nFrancisco Alfaro Medina & Patricio Olivares Roncagliolo\nAprende USM 2026 · UTFSM"
+  },
+  {
+    "objectID": "01_github/02_repositorio.html#repositorio-desordenado-o-repositorio-útil",
+    "href": "01_github/02_repositorio.html#repositorio-desordenado-o-repositorio-útil",
+    "title": "Tu repositorio académico",
+    "section": "¿Repositorio desordenado o repositorio útil?",
+    "text": "¿Repositorio desordenado o repositorio útil?\n\n\n❌ Repositorio sin estructura\nmi-repo/\n├── archivo1.ipynb\n├── archivo2.ipynb\n├── datos.csv\n├── datos_v2.csv\n├── informe_FINAL.pdf\n└── informe_FINAL_v2.pdf\n¿Qué es qué? ¿Cuál es el bueno?\n\n✅ Repositorio bien estructurado\nmi-proyecto/\n├── README.md\n├── .gitignore\n├── datos/\n│   └── dataset.csv\n├── notebooks/\n│   └── analisis.ipynb\n└── informe/\n    └── informe.pdf\nCualquiera entiende qué hay aquí."
+  },
+  {
+    "objectID": "01_github/02_repositorio.html#el-readme-la-portada-de-tu-proyecto",
+    "href": "01_github/02_repositorio.html#el-readme-la-portada-de-tu-proyecto",
+    "title": "Tu repositorio académico",
+    "section": "El README: la portada de tu proyecto",
+    "text": "El README: la portada de tu proyecto\n\n\nEl README.md es lo primero que ve alguien al entrar a tu repositorio.\nResponde en 30 segundos:\n\n¿Qué es este proyecto?\n¿Para qué curso o asignatura?\n¿Cómo usarlo?\n¿Quién lo hizo?\n\n\n\n\n\nHerramientas útiles\n\n\n\nreadme.so — editor visual\nshields.io — badges personalizados"
+  },
+  {
+    "objectID": "01_github/02_repositorio.html#estructura-del-readme-para-un-proyecto-estudiantil",
+    "href": "01_github/02_repositorio.html#estructura-del-readme-para-un-proyecto-estudiantil",
+    "title": "Tu repositorio académico",
+    "section": "Estructura del README para un proyecto estudiantil",
+    "text": "Estructura del README para un proyecto estudiantil\n# Nombre del proyecto\n\nDescripción breve: qué hace, para qué curso, qué problema resuelve.\n\n## Contenido del repositorio\n\n- `datos/` — archivos de entrada\n- `notebooks/` — análisis y código\n- `informe/` — informe final\n\n## Cómo usar este repositorio\n\n1. Clona el repositorio\n2. Abre el notebook en Colab\n3. Ejecuta las celdas en orden\n\n## Autor\n\nTu Nombre — tu.email@usm.cl — UTFSM 2026"
+  },
+  {
+    "objectID": "01_github/02_repositorio.html#el-.gitignore-qué-no-subir-a-github",
+    "href": "01_github/02_repositorio.html#el-.gitignore-qué-no-subir-a-github",
+    "title": "Tu repositorio académico",
+    "section": "El .gitignore: qué NO subir a GitHub",
+    "text": "El .gitignore: qué NO subir a GitHub\n\n\nNunca subas:\n\n.DS_Store, Thumbs.db (sistema operativo)\n__pycache__/, .ipynb_checkpoints/ (caché de Python)\n.env — contraseñas y tokens\nArchivos generados que puedes regenerar\n\n\n\n\n\nSi subiste una contraseña\n\n\nEliminar el archivo no borra el historial.\nCámbiala inmediatamente en la plataforma correspondiente.\nUsa siempre git status antes de git add ."
+  },
+  {
+    "objectID": "01_github/02_repositorio.html#checklist-repositorio-listo-para-entregar",
+    "href": "01_github/02_repositorio.html#checklist-repositorio-listo-para-entregar",
+    "title": "Tu repositorio académico",
+    "section": "Checklist: repositorio listo para entregar",
+    "text": "Checklist: repositorio listo para entregar\n\nREADME.md que explica el proyecto\nCarpetas con nombres descriptivos\n.gitignore con archivos temporales excluidos\nSin contraseñas ni datos sensibles subidos\nCommits con mensajes descriptivos\nLicencia definida\n\n\n\n\nNombres de archivos\n\n\nMinúsculas, sin espacios, sin tildes.\nanalisis-exploratorio.ipynb ✅ Análisis Exploratorio (1).ipynb ❌"
+  },
+  {
+    "objectID": "01_github/04_issues.html#section",
+    "href": "01_github/04_issues.html#section",
+    "title": "Organiza tu trabajo con Issues",
+    "section": "",
+    "text": "Organiza tu trabajo con Issues\nGitHub Issues como sistema personal de tareas académicas\n\n\nSesión 4 — Módulo GitHub\n\n\nFrancisco Alfaro Medina & Patricio Olivares Roncagliolo\nAprende USM 2026 · UTFSM"
+  },
+  {
+    "objectID": "01_github/04_issues.html#tener-todo-en-la-cabeza-no-escala",
+    "href": "01_github/04_issues.html#tener-todo-en-la-cabeza-no-escala",
+    "title": "Organiza tu trabajo con Issues",
+    "section": "Tener todo en la cabeza no escala",
+    "text": "Tener todo en la cabeza no escala\n\n\n¿Te ha pasado alguno de estos?\n\nOlvidaste que tenías algo pendiente hasta el día antes de la entrega\nCorregiste un error pero no recuerdas dónde ni cuándo\nTu proyecto tiene “cosas por hacer” pero no sabes exactamente cuáles\n\n\n\n\n\nGitHub Issues\n\n\nUn sistema de tareas que vive exactamente donde está tu trabajo.\nEscrito, visible, rastreable."
+  },
+  {
+    "objectID": "01_github/04_issues.html#qué-es-un-issue",
+    "href": "01_github/04_issues.html#qué-es-un-issue",
+    "title": "Organiza tu trabajo con Issues",
+    "section": "¿Qué es un Issue?",
+    "text": "¿Qué es un Issue?\nUn Issue puede ser cualquier cosa pendiente:\n\n\n\nTipo\nEjemplo\n\n\n\n\nTarea\n“Agregar conclusiones al informe”\n\n\nError\n“El gráfico falla si el CSV tiene vacíos”\n\n\nIdea\n“Probar con otro dataset para comparar”\n\n\nPregunta\n“¿El formato de entrega es PDF o HTML?”\n\n\n\nCrear un Issue:\nRepositorio → Issues → New issue → título + descripción → Submit"
+  },
+  {
+    "objectID": "01_github/04_issues.html#títulos-que-funcionan",
+    "href": "01_github/04_issues.html#títulos-que-funcionan",
+    "title": "Organiza tu trabajo con Issues",
+    "section": "Títulos que funcionan",
+    "text": "Títulos que funcionan\n\n\n❌ Títulos vagos\n\n“arreglar cosa”\n“pendiente”\n“revisar”\n“idea”\n\n\n✅ Títulos accionables\n\n“Corregir error en celda 7 del notebook”\n“Agregar conclusiones al informe final”\n“Revisar que .gitignore excluya .env”\n“Probar análisis con dataset de Kaggle”\n\n\n\n\n\nFórmula simple\n\n\nVerbo + objeto — permite entender la tarea sin leer la descripción."
+  },
+  {
+    "objectID": "01_github/04_issues.html#checklists-divide-tareas-grandes",
+    "href": "01_github/04_issues.html#checklists-divide-tareas-grandes",
+    "title": "Organiza tu trabajo con Issues",
+    "section": "Checklists: divide tareas grandes",
+    "text": "Checklists: divide tareas grandes\n## Tareas para el informe final\n\n- [x] Introducción y contexto\n- [x] Análisis exploratorio de datos\n- [ ] Sección de resultados\n- [ ] Conclusiones\n- [ ] Revisar formato de referencias\n- [ ] Exportar a PDF\nGitHub muestra el progreso automáticamente en la lista de Issues:\n\n✅ 3/6 tareas completadas\n\n\n\n\nUn Issue por entregable\n\n\nCrea un Issue por cada entrega del semestre con su checklist. Al cerrarlos, tienes un historial completo de lo que completaste."
+  },
+  {
+    "objectID": "01_github/04_issues.html#labels-y-milestones",
+    "href": "01_github/04_issues.html#labels-y-milestones",
+    "title": "Organiza tu trabajo con Issues",
+    "section": "Labels y Milestones",
+    "text": "Labels y Milestones\n\n\nLabels — categorizar Issues\n\n\n\nLabel\nPara qué\n\n\n\n\ntarea\nEntregables con fecha\n\n\nbug\nErrores en el código\n\n\nurgente\nNecesario ya\n\n\nidea\nMejoras para después\n\n\n\n\nMilestones — agrupar por entrega\n\"Lab 3\" — 15 mayo\n├── Análisis de correlación\n├── Gráfico de dispersión\n├── Redactar conclusiones\n└── Revisar formato\nMuestra el % de avance automáticamente."
+  },
+  {
+    "objectID": "01_github/04_issues.html#cerrar-un-issue-desde-un-commit",
+    "href": "01_github/04_issues.html#cerrar-un-issue-desde-un-commit",
+    "title": "Organiza tu trabajo con Issues",
+    "section": "Cerrar un Issue desde un commit",
+    "text": "Cerrar un Issue desde un commit\nLa parte más poderosa: el Issue se cierra solo al hacer push.\ngit commit -m \"fix: corrijo error en celda 7 del notebook\n\nCloses #3\"\nAl hacer git push → GitHub cierra el Issue #3 y vincula el commit.\nPalabras que funcionan: Closes #N · Fixes #N · Resolves #N\n\n\n\nResultado\n\n\nPuedes ver exactamente qué cambio resolvió cada tarea — trazabilidad completa de tu trabajo."
+  },
+  {
+    "objectID": "02_colab/01_esencial.html#section",
+    "href": "02_colab/01_esencial.html#section",
+    "title": "Colab esencial",
+    "section": "",
+    "text": "Colab esencial\nNotebooks en la nube para docencia práctica\n\n\nSesión 2 — Google Colab para docencia\n\n\nFrancisco Alfaro\nDocencia Digital · UTFSM · 2026"
+  },
+  {
+    "objectID": "02_colab/01_esencial.html#el-problema-que-resuelve-colab",
+    "href": "02_colab/01_esencial.html#el-problema-que-resuelve-colab",
+    "title": "Colab esencial",
+    "section": "El problema que resuelve Colab",
+    "text": "El problema que resuelve Colab\n\n\nEl escenario sin Colab:\n\nUn estudiante tiene Mac, otro Windows, otro Linux\nUno tiene Python 3.10, otro 3.12\nUno tiene instalado pandas, otro no\nLas primeras dos horas de clase se van en “a mí no me funciona”\n\nCon Google Colab:\nTodos ejecutan el mismo código en el mismo entorno, desde el navegador, sin instalar nada.\n\n\n\n\nEl flujo docente\n\n\n\nDocente sube el notebook\nEstudiantes abren el link\nEmpiezan a trabajar\n\nSin instalación. Sin configuración. Sin excusas."
+  },
+  {
+    "objectID": "02_colab/01_esencial.html#qué-es-un-notebook-y-la-lógica-de-celdas",
+    "href": "02_colab/01_esencial.html#qué-es-un-notebook-y-la-lógica-de-celdas",
+    "title": "Colab esencial",
+    "section": "¿Qué es un notebook y la lógica de celdas?",
+    "text": "¿Qué es un notebook y la lógica de celdas?\n\n\nUn notebook mezcla código ejecutable y texto formateado en una secuencia de bloques llamados celdas.\n\n\n\n\n\ngraph TD\n    N[\"📓 Notebook\"]\n    N --&gt; C1[\"📝 Celda Markdown\\n## Regresión lineal\\nLa regresión lineal modela...\"]\n    N --&gt; C2[\"💻 Celda de código\\nfrom sklearn.linear_model import...\\nmodelo = LinearRegression()\"]\n    N --&gt; C3[\"📊 Output\\nCoeficiente: 2.34 · [gráfico]\"]\n    N --&gt; C4[\"📝 Celda Markdown\\n### Interpretación\\nEl coeficiente de 2.34...\"]\n\n\n\n\n\n\n\nA diferencia de:\n\nScript Python → solo código\nDocumento Word → solo texto\nNotebook → explicación + ejecución + resultado entrelazados\n\n\n\n\nPara docencia\n\n\nUna celda explica el concepto, la siguiente lo demuestra con código, la siguiente muestra el resultado."
+  },
+  {
+    "objectID": "02_colab/01_esencial.html#colab-vs-jupyter-local-las-ventajas-clave",
+    "href": "02_colab/01_esencial.html#colab-vs-jupyter-local-las-ventajas-clave",
+    "title": "Colab esencial",
+    "section": "Colab vs Jupyter local: las ventajas clave",
+    "text": "Colab vs Jupyter local: las ventajas clave\n\n\n\nCaracterística\nJupyter local\nGoogle Colab\n\n\n\n\nInstalación\nRequerida\nNo requerida\n\n\nEntorno\nDepende del OS\nIdéntico para todos\n\n\nGPU gratuita\nNo\nSí (T4, L4)\n\n\nColaboración en tiempo real\nNo\nSí, como Google Docs\n\n\nAlmacenamiento\nLocal\nGoogle Drive\n\n\nCosto\nGratis\nGratis (con límites)\n\n\n\n\n\n\n\nLa ventaja decisiva para docencia\n\n\nHeterogeneidad de entornos eliminada. El docente sube un notebook; los estudiantes lo ejecutan sin tocar nada de su sistema."
+  },
+  {
+    "objectID": "02_colab/01_esencial.html#interfaz-de-colab-lo-esencial-para-empezar",
+    "href": "02_colab/01_esencial.html#interfaz-de-colab-lo-esencial-para-empezar",
+    "title": "Colab esencial",
+    "section": "Interfaz de Colab: lo esencial para empezar",
+    "text": "Interfaz de Colab: lo esencial para empezar\n\n\nCrear un notebook:\n→ colab.research.google.com → New notebook\nTipos de celda:\n\nCódigo → se ejecuta con Shift+Enter\nTexto → Markdown renderizado\n\nShortcuts imprescindibles:\n\n\n\nAcción\nAtajo\n\n\n\n\nEjecutar celda\nShift+Enter\n\n\nEjecutar + nueva celda\nAlt+Enter\n\n\nNueva celda arriba\nA (en modo comando)\n\n\nNueva celda abajo\nB (en modo comando)\n\n\nModo comando\nEsc\n\n\nModo edición\nEnter\n\n\n\n\nRuntime y GPU:\nRuntime → Change runtime type\n\nCPU → suficiente para la mayoría\nT4 GPU → modelos de ML, visión computacional\nL4 GPU → modelos grandes (disponible en Colab Pro)\n\n\n\n\nLímite de sesión gratuita\n\n\n~12 horas continuas. Para sesiones largas de entrenamiento: Colab Pro (~$10/mes) o usar recursos institucionales."
+  },
+  {
+    "objectID": "02_colab/01_esencial.html#acceso-a-datos-las-cuatro-formas",
+    "href": "02_colab/01_esencial.html#acceso-a-datos-las-cuatro-formas",
+    "title": "Colab esencial",
+    "section": "Acceso a datos: las cuatro formas",
+    "text": "Acceso a datos: las cuatro formas\n\n\n1. Subida directa (datos pequeños):\nfrom google.colab import files\nuploaded = files.upload()\n# Se abre diálogo de selección de archivo\n2. Desde URL pública (CSV, JSON):\nimport pandas as pd\ndf = pd.read_csv('https://raw.githubusercontent.com/...')\n3. Desde Google Drive:\nfrom google.colab import drive\ndrive.mount('/content/drive')\ndf = pd.read_csv('/content/drive/MyDrive/datos.csv')\n\n4. Descargar con wget/curl:\n!wget https://ejemplo.com/dataset.zip\n!unzip dataset.zip\nInstalar librerías adicionales:\n!pip install seaborn plotly\n\n\n\nRecomendación para docencia\n\n\nUsa datos en URLs públicas (GitHub raw, repositorio del curso). Los estudiantes los cargan automáticamente sin montar Drive ni subir archivos."
+  },
+  {
+    "objectID": "02_colab/01_esencial.html#colaboración-y-compartir-notebooks",
+    "href": "02_colab/01_esencial.html#colaboración-y-compartir-notebooks",
+    "title": "Colab esencial",
+    "section": "Colaboración y compartir notebooks",
+    "text": "Colaboración y compartir notebooks\n\n\nCompartir como Google Docs:\n\nClic en Share → Agregar emails\nColaboración en tiempo real (múltiples cursores)\nPerfecto para trabajo en equipo durante la clase\n\nPara toda la clase:\n\nShare → Anyone with the link can view\nLos estudiantes hacen File → Save a copy in Drive → su propia copia\n\nAbrir en Colab desde GitHub:\nAgrega a la URL de GitHub:\nhttps://colab.research.google.com/github/\nusuario/repo/blob/main/notebook.ipynb\n\nCompartir con botón en el README:\n[![Open In Colab](https://colab.research.google.com/assets/\ncolab-badge.svg)](https://colab.research.google.com/github/\nusuario/repo/blob/main/notebook.ipynb)\n\n\n\n\nFlujo recomendado para labs\n\n\nNotebook en GitHub → link en el sitio del curso → estudiantes hacen su copia en Drive → trabajan en su copia."
+  },
+  {
+    "objectID": "02_colab/01_esencial.html#formularios-y-widgets-interactivos",
+    "href": "02_colab/01_esencial.html#formularios-y-widgets-interactivos",
+    "title": "Colab esencial",
+    "section": "Formularios y widgets interactivos",
+    "text": "Formularios y widgets interactivos\n\n\nColab Forms: parámetros configurables sin tocar el código\n# @title Configurar modelo\nlearning_rate = 0.01  # @param {type:\"number\"}\nnum_epochs = 100      # @param {type:\"slider\", min:10, max:500}\noptimizer = \"Adam\"    # @param [\"Adam\", \"SGD\", \"RMSprop\"]\nLa celda muestra un formulario visual — el estudiante ajusta parámetros sin editar código.\n\nipywidgets para dashboards:\nimport ipywidgets as widgets\nfrom IPython.display import display\n\nslider = widgets.IntSlider(\n    value=5, min=1, max=20,\n    description='K vecinos:'\n)\n\ndef actualizar(k):\n    # Re-entrena con k vecinos\n    ...\n\nwidgets.interactive(actualizar, k=slider)\n\n\n\nPara clases de estadística\n\n\nSliders que cambian parámetros y actualizan gráficos en tiempo real. Los estudiantes desarrollan intuición sin escribir código."
+  },
+  {
+    "objectID": "02_colab/01_esencial.html#conectar-colab-con-github",
+    "href": "02_colab/01_esencial.html#conectar-colab-con-github",
+    "title": "Colab esencial",
+    "section": "Conectar Colab con GitHub",
+    "text": "Conectar Colab con GitHub\n\n\nClonar y trabajar con el repo del curso:\n# Clonar repositorio\n!git clone https://github.com/usuario/mat281.git\n%cd mat281\n\n# Ver estructura\n!ls -la\n\n# Instalar dependencias del proyecto\n!pip install -r requirements.txt\nGuardar cambios (con autenticación):\n!git config user.email \"juan@usm.cl\"\n!git config user.name \"Juan Pérez\"\n!git add .\n!git commit -m \"feat: completo ejercicio 3\"\n!git push\n# → pedirá token de GitHub\n\nPatrón recomendado para estudiantes:\n\nFork del repositorio del curso\nAbrir su fork en Colab\nTrabajar → guardar en Drive\nPush al fork → Pull Request\n\n\n\n\nToken de GitHub en Colab\n\n\nNunca pongas el token directamente en el notebook. Usa userdata de Colab:\nfrom google.colab import userdata\ntoken = userdata.get('GITHUB_TOKEN')"
+  },
+  {
+    "objectID": "02_colab/01_esencial.html#buenas-prácticas-docentes-con-colab",
+    "href": "02_colab/01_esencial.html#buenas-prácticas-docentes-con-colab",
+    "title": "Colab esencial",
+    "section": "Buenas prácticas docentes con Colab",
+    "text": "Buenas prácticas docentes con Colab\n\n\nEn el notebook para los estudiantes:\n✅ Celda de instalación al inicio (todo en una sola)\n!pip install pandas matplotlib seaborn -q\n✅ Celda de verificación de entorno\nimport sys\nprint(f\"Python {sys.version}\")\nimport pandas as pd\nprint(f\"pandas {pd.__version__}\")\n✅ Celdas de tarea claramente marcadas\n# ============ TU CÓDIGO AQUÍ ============\n\n# ========================================\n\nLo que no hacer:\n❌ Datos que requieren Drive montado (depende de la cuenta del estudiante)\n❌ Notebooks sin reiniciar antes de publicar (Kernel → Restart and Run All)\n❌ Celdas en desorden que solo funcionan si ejecutas en cierto orden\n\n\n\nAntes de publicar un notebook\n\n\nSiempre hacer Runtime → Restart and run all y verificar que funciona de inicio a fin sin errores."
+  },
+  {
+    "objectID": "02_colab/01_esencial.html#section-1",
+    "href": "02_colab/01_esencial.html#section-1",
+    "title": "Colab esencial",
+    "section": "",
+    "text": "¿Preguntas?\n\nFrancisco Alfaro\nfralfaro@usm.cl\nDocencia Digital · UTFSM\n2026"
+  },
+  {
+    "objectID": "03_latex/01_esencial.html#section",
+    "href": "03_latex/01_esencial.html#section",
+    "title": "LaTeX esencial",
+    "section": "",
+    "text": "LaTeX esencial\nEl estándar de publicación académica desde cero\n\n\nSesión 3 — Overleaf y LaTeX para docencia\n\n\nFrancisco Alfaro\nDocencia Digital · UTFSM · 2026"
+  },
+  {
+    "objectID": "03_latex/01_esencial.html#por-qué-latex-el-problema-que-resuelve",
+    "href": "03_latex/01_esencial.html#por-qué-latex-el-problema-que-resuelve",
+    "title": "LaTeX esencial",
+    "section": "¿Por qué LaTeX? El problema que resuelve",
+    "text": "¿Por qué LaTeX? El problema que resuelve\n\n\nEscenarios que todos reconocen:\n\nDiez minutos ajustando una ecuación en Word para que no se vea horrible\nUna revista científica pide reformatear todo el documento en su plantilla\nLas referencias cruzadas se rompen al mover secciones\nLa numeración de ecuaciones es manual y se desordena\n\nLaTeX no es un procesador de texto — es un sistema de composición tipográfica.\nTú describes la estructura. LaTeX decide cómo se ve.\n\n\n\n\n\n\ngraph TD\n    W[\"📝 Word / Google Docs\\nWYSIWYG\"] --&gt; O1[\"❌ Ecuaciones limitadas\\n❌ Numeración manual\\n✅ Curva de entrada baja\"]\n    L[\"⚙️ LaTeX\\nMarkup\"] --&gt; O2[\"✅ Ecuaciones perfectas\\n✅ Numeración automática\\n✅ Referencias robustas\\n❌ Curva de entrada alta\"]"
+  },
+  {
+    "objectID": "03_latex/01_esencial.html#latex-en-la-academia-los-números",
+    "href": "03_latex/01_esencial.html#latex-en-la-academia-los-números",
+    "title": "LaTeX esencial",
+    "section": "LaTeX en la academia: los números",
+    "text": "LaTeX en la academia: los números\n\n\nMás del 90% de las revistas de matemáticas, física, ingeniería y computación aceptan o requieren LaTeX.\nLa razón: ningún otro sistema produce ecuaciones matemáticas con esa calidad tipográfica.\nOverleaf: el entorno LaTeX en la nube\n\nSin instalar nada (como Colab para Python)\nColaboración en tiempo real\nPlantillas de revistas y conferencias\nCompilación automática al guardar\n\n→ overleaf.com\n\n\n\n\nPara docentes de ingeniería y matemáticas\n\n\nDominar LaTeX no es una curiosidad técnica — es la diferencia entre material que se ve amateur y material que se ve como un libro de texto publicado.\n\n\n\nPlan gratuito de Overleaf:\n\nProyectos ilimitados\nColaboración con hasta 1 persona\nCompilaciones sin límite\nAcceso a todas las plantillas"
+  },
+  {
+    "objectID": "03_latex/01_esencial.html#estructura-básica-de-un-documento-latex",
+    "href": "03_latex/01_esencial.html#estructura-básica-de-un-documento-latex",
+    "title": "LaTeX esencial",
+    "section": "Estructura básica de un documento LaTeX",
+    "text": "Estructura básica de un documento LaTeX\n\\documentclass[12pt, letterpaper]{article}\n\n% Paquetes\n\\usepackage[utf8]{inputenc}   % caracteres especiales (tildes, ñ)\n\\usepackage[spanish]{babel}   % idioma\n\\usepackage{amsmath}          % matemáticas\n\\usepackage{graphicx}         % imágenes\n\\usepackage{hyperref}         % links clicables\n\n% Metadatos\n\\title{Guía de Laboratorio 3}\n\\author{Juan Pérez}\n\\date{Semestre 2025-1}\n\n\\begin{document}\n\n\\maketitle          % genera la portada automáticamente\n\\tableofcontents    % tabla de contenidos automática\n\n\\section{Introducción}\nTexto de la sección...\n\n\\subsection{Objetivos}\nLos objetivos son...\n\n\\end{document}"
+  },
+  {
+    "objectID": "03_latex/01_esencial.html#texto-y-formato-básico",
+    "href": "03_latex/01_esencial.html#texto-y-formato-básico",
+    "title": "LaTeX esencial",
+    "section": "Texto y formato básico",
+    "text": "Texto y formato básico\n\n\nÉnfasis y formato:\nTexto \\textbf{negrita} y \\textit{cursiva}.\n\\texttt{código monoespaciado}\n\\underline{subrayado}\n\n% Alineación\n\\begin{center}\n  Texto centrado\n\\end{center}\n\n\\begin{flushright}\n  Texto a la derecha\n\\end{flushright}\nListas:\n\\begin{itemize}          % viñetas\n  \\item Primer ítem\n  \\item Segundo ítem\n\\end{itemize}\n\n\\begin{enumerate}        % numerada\n  \\item Paso uno\n  \\item Paso dos\n\\end{enumerate}\n\nSecciones y jerarquía:\n\\part{Parte I}\n  \\chapter{Capítulo}       % solo en book\n    \\section{Sección}\n      \\subsection{Sub}\n        \\subsubsection{Subsub}\n          \\paragraph{Párrafo}\nComentarios (no aparecen en el PDF):\n% Esto es un comentario\n% El compilador lo ignora completamente\n\n\n\n\\maketitle y \\tableofcontents\n\n\nDos comandos que hacen todo solos. La tabla de contenidos se genera automáticamente con todos los números de página correctos."
+  },
+  {
+    "objectID": "03_latex/01_esencial.html#ecuaciones-el-poder-de-latex",
+    "href": "03_latex/01_esencial.html#ecuaciones-el-poder-de-latex",
+    "title": "LaTeX esencial",
+    "section": "Ecuaciones: el poder de LaTeX",
+    "text": "Ecuaciones: el poder de LaTeX\n\n\nModo inline (dentro del texto):\nSea $f(x) = x^2 + 3x - 2$ una función cuadrática.\nSu derivada es $f'(x) = 2x + 3$.\nModo display (línea propia, centrada):\n\\begin{equation}\n  \\int_0^{\\infty} e^{-x^2} \\, dx = \\frac{\\sqrt{\\pi}}{2}\n\\end{equation}\n\n% Sin número de ecuación\n\\[\n  \\nabla J(\\theta) \\propto \\sum_s \\mu(s) \\sum_a q_\\pi(s,a)\n\\]\n\nSímbolos más usados:\n% Fracciones\n\\frac{numerador}{denominador}\n\n% Subíndices y superíndices\nx_{i}    x^{2}    x_{ij}^{2}\n\n% Raíces\n\\sqrt{x}    \\sqrt[3]{x}\n\n% Sumas e integrales\n\\sum_{i=1}^{n}    \\int_a^b\n\n% Letras griegas\n\\alpha \\beta \\gamma \\theta \\mu \\sigma\n\n% Operadores\n\\lim_{x \\to 0}    \\max_{x}    \\min_x\n\n\n\nLa ventaja clave sobre Word\n\n\nLas ecuaciones en LaTeX son texto estructurado, no imágenes. Se escalan, se pueden referenciar y se actualizan automáticamente."
+  },
+  {
+    "objectID": "03_latex/01_esencial.html#tablas-y-figuras",
+    "href": "03_latex/01_esencial.html#tablas-y-figuras",
+    "title": "LaTeX esencial",
+    "section": "Tablas y figuras",
+    "text": "Tablas y figuras\n\n\nTabla básica:\n\\begin{table}[h]\n  \\centering\n  \\caption{Resultados del experimento}\n  \\label{tab:resultados}\n  \\begin{tabular}{|l|c|r|}\n    \\hline\n    Método & Precisión & Tiempo \\\\\n    \\hline\n    Lineal & 0.82 & 1.2s \\\\\n    Árbol  & 0.91 & 3.7s \\\\\n    Red    & 0.95 & 45.2s \\\\\n    \\hline\n  \\end{tabular}\n\\end{table}\n→ Ver Tabla \\(\\ref{tab:resultados}\\) (referencia automática)\n\nFigura:\n\\usepackage{graphicx}   % en el preámbulo\n\n\\begin{figure}[h]\n  \\centering\n  \\includegraphics[width=0.8\\linewidth]{grafico.png}\n  \\caption{Distribución de notas}\n  \\label{fig:notas}\n\\end{figure}\n\n\n\nGenerador de tablas LaTeX\n\n\ntables-generator.com → diseña la tabla visualmente → copia el LaTeX.\nMucho más rápido que escribir la tabla a mano."
+  },
+  {
+    "objectID": "03_latex/01_esencial.html#referencias-bibliográficas-con-bibtex",
+    "href": "03_latex/01_esencial.html#referencias-bibliográficas-con-bibtex",
+    "title": "LaTeX esencial",
+    "section": "Referencias bibliográficas con BibTeX",
+    "text": "Referencias bibliográficas con BibTeX\n\n\nArchivo referencias.bib:\n@book{sutton2018,\n  author    = {Sutton, Richard S. and Barto, Andrew G.},\n  title     = {Reinforcement Learning: An Introduction},\n  publisher = {MIT Press},\n  year      = {2018},\n  edition   = {2nd}\n}\n\n@article{lecun1989,\n  author  = {LeCun, Yann and others},\n  title   = {Backpropagation Applied to Handwritten Zip Code Recognition},\n  journal = {Neural Computation},\n  year    = {1989},\n  volume  = {1}\n}\n\nEn el documento .tex:\n% En el preámbulo\n\\usepackage[style=apa]{biblatex}\n\\addbibresource{referencias.bib}\n\n% En el texto\nSegún \\cite{sutton2018}, el aprendizaje...\n\nLos experimentos de \\cite{lecun1989} muestran...\n\n% Al final del documento\n\\printbibliography\n\n\n\nExportar desde Zotero o Mendeley\n\n\nZotero → seleccionar referencias → Exportar → Better BibTeX → referencias.bib. La bibliografía completa se genera automáticamente."
+  },
+  {
+    "objectID": "03_latex/01_esencial.html#flujo-de-trabajo-con-overleaf",
+    "href": "03_latex/01_esencial.html#flujo-de-trabajo-con-overleaf",
+    "title": "LaTeX esencial",
+    "section": "Flujo de trabajo con Overleaf",
+    "text": "Flujo de trabajo con Overleaf\n\n\nCrear un proyecto:\n\noverleaf.com → New Project → Blank Project\nEscribe el .tex en el editor\nClic en Compile (o Ctrl+Enter)\nEl PDF aparece a la derecha en segundos\n\nColaborar:\n\nShare → Invite a collaborator (email)\nAmbos editan en tiempo real\nTrack Changes para ver qué cambió quién\n\n\nConectar con GitHub:\nOverleaf Pro → Git Integration → clonar o pushear a GitHub.\nCon cuenta gratuita, descargar el ZIP y subirlo manualmente al repositorio del curso.\n\n\n\nOverleaf como entorno de clase\n\n\nEl docente comparte el proyecto con acceso de lectura. Los estudiantes ven el LaTeX y el PDF en tiempo real. Ideal para mostrar cómo se construye un documento."
+  },
+  {
+    "objectID": "03_latex/01_esencial.html#errores-comunes-de-latex-y-cómo-resolverlos",
+    "href": "03_latex/01_esencial.html#errores-comunes-de-latex-y-cómo-resolverlos",
+    "title": "LaTeX esencial",
+    "section": "Errores comunes de LaTeX y cómo resolverlos",
+    "text": "Errores comunes de LaTeX y cómo resolverlos\n\n\n\n\n\n\n\n\nError\nCausa probable\nSolución\n\n\n\n\nUndefined control sequence\nComando mal escrito o paquete faltante\nVerificar ortografía y agregar \\usepackage{}\n\n\nMissing $ inserted\nSímbolo matemático fuera de modo math\nPoner el símbolo dentro de $...$\n\n\nOverfull \\hbox\nLínea de texto demasiado larga\nAgregar \\allowbreak o reformular\n\n\nFile not found\nImagen o .bib no encontrado\nVerificar nombre y ruta del archivo\n\n\nToo many }'s\nLlaves sin cerrar\nRevisar que cada { tiene su }\n\n\n\n\n\n\nEstrategia ante un error\n\n\nIr al log de compilación → buscar la línea donde aparece ERROR: → leer el mensaje → buscar en Google “latex [mensaje del error]”. La comunidad LaTeX es enorme y casi todo error tiene solución documentada."
+  },
+  {
+    "objectID": "03_latex/01_esencial.html#section-1",
+    "href": "03_latex/01_esencial.html#section-1",
+    "title": "LaTeX esencial",
+    "section": "",
+    "text": "¿Preguntas?\n\nFrancisco Alfaro\nfralfaro@usm.cl\nDocencia Digital · UTFSM\n2026"
+  },
+  {
+    "objectID": "04_quarto/01_intro.html#section",
+    "href": "04_quarto/01_intro.html#section",
+    "title": "Qué es Quarto y por qué usarlo",
+    "section": "",
+    "text": "Qué es Quarto y por qué usarlo\nEl sistema de publicación científica para el docente moderno\n\n\nSesión 4 — Quarto para material académico\n\n\nFrancisco Alfaro\nDocencia Digital · UTFSM · 2026"
+  },
+  {
+    "objectID": "04_quarto/01_intro.html#la-promesa-de-quarto",
+    "href": "04_quarto/01_intro.html#la-promesa-de-quarto",
+    "title": "Qué es Quarto y por qué usarlo",
+    "section": "La promesa de Quarto",
+    "text": "La promesa de Quarto\n\n\nUn archivo .qmd, múltiples formatos de salida:\nEscribes una vez y renderizas como:\n\nHTML → sitio web del curso\nPDF → para imprimir o enviar a revista\nRevealJS → presentación de clase\nWord → informe institucional\n\nSin copiar y pegar. Sin inconsistencias entre versiones.\n\n\n\n\nEste libro que lees\n\n\nEste material está construido completamente en Quarto. El sitio web, las presentaciones y los documentos PDF salen del mismo repositorio de archivos .qmd."
+  },
+  {
+    "objectID": "04_quarto/01_intro.html#quarto-vs-jupyter-notebooks-vs-r-markdown",
+    "href": "04_quarto/01_intro.html#quarto-vs-jupyter-notebooks-vs-r-markdown",
+    "title": "Qué es Quarto y por qué usarlo",
+    "section": "Quarto vs Jupyter Notebooks vs R Markdown",
+    "text": "Quarto vs Jupyter Notebooks vs R Markdown\n\n\nLos tres nacen de la misma necesidad: mezclar narrativa con código ejecutable.\nEso se llama programación literaria (literate programming) — propuesta por Donald Knuth en 1984.\n\n\n\n\n\ngraph LR\n    JN[\"Jupyter\\nNotebooks\\n(2011)\"] --&gt; Q[\"Quarto\\n(2022)\"]\n    RM[\"R Markdown\\n(2012)\"] --&gt; Q\n    Q --&gt; H[\"HTML\"]\n    Q --&gt; P[\"PDF\"]\n    Q --&gt; S[\"Slides\"]\n    Q --&gt; W[\"Word\"]\n    Q --&gt; B[\"Book\"]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSistema\nLenguajes\nFormatos\n\n\n\n\nJupyter\nPython, R, Julia\nHTML, PDF\n\n\nR Markdown\nR, Python\nHTML, PDF, Word\n\n\nQuarto\nPython, R, Julia, Observable\nHTML, PDF, Word, RevealJS, Docx, y más\n\n\n\n\n\n\nLa diferencia clave de Quarto\n\n\nNo depende de R. Funciona igualmente bien con Python. Y produce más formatos desde el mismo archivo."
+  },
+  {
+    "objectID": "04_quarto/01_intro.html#instalación-y-configuración",
+    "href": "04_quarto/01_intro.html#instalación-y-configuración",
+    "title": "Qué es Quarto y por qué usarlo",
+    "section": "Instalación y configuración",
+    "text": "Instalación y configuración\n\n\n1. Instalar Quarto:\n→ quarto.org/docs/get-started\nDisponible para Windows, Mac, Linux.\n2. Verificar la instalación:\nquarto --version\n# 1.5.57\n3. Instalar la extensión en VS Code:\nExtensiones → buscar Quarto → instalar\nLa extensión agrega: - Preview en tiempo real del documento - Completado de opciones YAML - Resaltado de sintaxis en chunks\n\nExtensiones de VS Code recomendadas:\n\n\n\nExtensión\nPara qué\n\n\n\n\nQuarto\nEditor y preview\n\n\nPython\nSoporte de Python\n\n\nJupyter\nSoporte de notebooks\n\n\nGitLens\nIntegración con Git\n\n\n\n\n\n\nEn Overleaf o Colab\n\n\nQuarto también funciona en la nube. En GitHub Actions lo instalas automáticamente con la action quarto-dev/quarto-actions/setup@v2."
+  },
+  {
+    "objectID": "04_quarto/01_intro.html#el-archivo-.qmd-anatomía-básica",
+    "href": "04_quarto/01_intro.html#el-archivo-.qmd-anatomía-básica",
+    "title": "Qué es Quarto y por qué usarlo",
+    "section": "El archivo .qmd: anatomía básica",
+    "text": "El archivo .qmd: anatomía básica\n\n\nFrontmatter YAML:\n---\ntitle: \"Regresión Lineal\"\nsubtitle: \"Introducción a modelos predictivos\"\nauthor: \"Juan Pérez\"\ndate: today\nformat: html\n---\nTexto en Markdown:\n## Introducción\n\nLa regresión lineal modela la relación\nentre una variable dependiente $y$ y\nvariables independientes $x_1, \\ldots, x_p$.\n\n$$y = \\beta_0 + \\beta_1 x_1 + \\varepsilon$$\n\nChunk de código:\n```{python}\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ndf = pd.read_csv('datos.csv')\ndf.head()\n```\nRenderizar:\nquarto render documento.qmd\n# → documento.html\n\n\n\n.qmd = Markdown + YAML + chunks\n\n\nEl formato es familiar si conoces R Markdown o Jupyter. La sintaxis de los chunks es ligeramente diferente pero el concepto es idéntico."
+  },
+  {
+    "objectID": "04_quarto/01_intro.html#formatos-de-salida-uno-para-cada-propósito",
+    "href": "04_quarto/01_intro.html#formatos-de-salida-uno-para-cada-propósito",
+    "title": "Qué es Quarto y por qué usarlo",
+    "section": "Formatos de salida: uno para cada propósito",
+    "text": "Formatos de salida: uno para cada propósito\n\n\nHTML (website):\nformat:\n  html:\n    theme: cosmo\n    toc: true\n    code-fold: true\nPDF (vía LaTeX):\nformat:\n  pdf:\n    documentclass: article\n    geometry:\n      - top=2cm\n      - left=3cm\nWord:\nformat:\n  docx:\n    reference-doc: plantilla.docx\n\nRevealJS (presentación):\nformat:\n  revealjs:\n    theme: default\n    slide-number: true\n    transition: fade\nMúltiples formatos del mismo archivo:\nformat:\n  html: default\n  pdf: default\n  revealjs: default\nquarto render --to html\nquarto render --to pdf\nquarto render --to revealjs\n\n\n\nUn solo archivo fuente\n\n\nEscribes el contenido una vez. Cambiar de HTML a PDF es solo cambiar el format en el YAML."
+  },
+  {
+    "objectID": "04_quarto/01_intro.html#el-ciclo-de-trabajo-con-quarto",
+    "href": "04_quarto/01_intro.html#el-ciclo-de-trabajo-con-quarto",
+    "title": "Qué es Quarto y por qué usarlo",
+    "section": "El ciclo de trabajo con Quarto",
+    "text": "El ciclo de trabajo con Quarto\n\n\n\n\n\ngraph LR\n    E[\"✏️ Editar\\n.qmd en VS Code\"]\n    P[\"👁️ Preview\\nen el navegador\"]\n    R[\"🎨 Render\\nformato final\"]\n    G[\"🐙 GitHub\\nversión y deploy\"]\n\n    E -- \"quarto preview\" --&gt; P\n    P -- \"editar y ver cambios en vivo\" --&gt; E\n    E -- \"quarto render\" --&gt; R\n    R -- \"git push\" --&gt; G\n    G -- \"GitHub Pages\\nauto-deploy\" --&gt; P\n\n\n\n\n\n\n\n\n\nquarto preview es tu mejor amigo\n\n\nAbre el documento en el navegador y lo actualiza automáticamente cada vez que guardas. Es como el modo de edición en Google Docs pero para publicación académica."
+  },
+  {
+    "objectID": "04_quarto/01_intro.html#opciones-de-ejecución-de-código",
+    "href": "04_quarto/01_intro.html#opciones-de-ejecución-de-código",
+    "title": "Qué es Quarto y por qué usarlo",
+    "section": "Opciones de ejecución de código",
+    "text": "Opciones de ejecución de código\n\n\nA nivel de documento (en el frontmatter):\nexecute:\n  echo: true       # mostrar el código\n  warning: false   # ocultar warnings\n  message: false   # ocultar mensajes\n  freeze: auto     # no re-ejecutar si no cambió\nA nivel de chunk individual:\n```{python}\n#| echo: false      # ocultar este código específico\n#| fig-cap: \"Distribución de notas\"\n#| fig-width: 8\n#| fig-height: 4\n\nplt.hist(df['nota'])\nplt.show()\n```\n\nOpciones más usadas en docencia:\n\n\n\nOpción\nEfecto\n\n\n\n\necho: false\nMuestra solo el output\n\n\necho: true\nMuestra código + output\n\n\neval: false\nMuestra el código sin ejecutar\n\n\noutput: false\nEjecuta pero no muestra output\n\n\nfig-cap: \"...\"\nPie de figura\n\n\ncode-fold: true\nCódigo colapsable\n\n\n\n\n\n\nfreeze: auto es crítico para deployment\n\n\nCon freeze, Quarto guarda los resultados. En GitHub Actions, solo re-ejecuta el código que cambió. El tiempo de build puede reducirse de 15 min a 2 min."
+  },
+  {
+    "objectID": "04_quarto/01_intro.html#tipos-de-proyecto-quarto",
+    "href": "04_quarto/01_intro.html#tipos-de-proyecto-quarto",
+    "title": "Qué es Quarto y por qué usarlo",
+    "section": "Tipos de proyecto Quarto",
+    "text": "Tipos de proyecto Quarto\n\n\nWebsite (sitio del curso):\nquarto create project website mi-curso\nmi-curso/\n├── _quarto.yml    # configuración del sitio\n├── index.qmd      # página de inicio\n├── lectures/\n│   └── semana01.qmd\n└── labs/\n    └── lab01.qmd\nBook (libro o apuntes):\nquarto create project book mi-libro\nGenera automáticamente capítulos numerados con navegación.\n\nBlog:\nquarto create project blog mi-blog\nPosts con fecha, categorías y RSS automático.\nManuscript (paper):\nquarto create project manuscript mi-paper\nOptimizado para publicación académica con múltiples formatos de salida.\n\n\n\n¿Qué proyecto elegir para docencia?\n\n\nWebsite → sitio del curso completo con navegación\nBook → apuntes o libro de texto del curso\nRevealJS (sin proyecto) → presentaciones de clase individuales"
+  },
+  {
+    "objectID": "04_quarto/01_intro.html#la-ventaja-sobre-powerpoint-reproducibilidad",
+    "href": "04_quarto/01_intro.html#la-ventaja-sobre-powerpoint-reproducibilidad",
+    "title": "Qué es Quarto y por qué usarlo",
+    "section": "La ventaja sobre PowerPoint: reproducibilidad",
+    "text": "La ventaja sobre PowerPoint: reproducibilidad\n\n\nCon PowerPoint:\n\nLa figura de regresión la hiciste manualmente en Excel\nSi los datos cambian, actualizas Excel, exportas PNG, lo insertas de nuevo\nEl número “media = 5.23” del texto puede estar desactualizado\nEnvías el .pptx a un colega → no puede reproducir los cálculos\n\nCon Quarto:\n\nLa figura sale del código que está en el mismo documento\nSi los datos cambian, quarto render → todo actualizado automáticamente\nEl número “media = {python} df['nota'].mean():.2f” siempre es correcto\nEl colega clona el repositorio y reproduce todo en segundos\n\n\n\n\n\nEl principio de reproducibilidad\n\n\nEl documento es la verdad. No hay pasos ocultos entre los datos y el resultado final.\nEso tiene valor en docencia: los estudiantes ven exactamente cómo se llegó a cada número y cada figura."
+  },
+  {
+    "objectID": "04_quarto/01_intro.html#section-1",
+    "href": "04_quarto/01_intro.html#section-1",
+    "title": "Qué es Quarto y por qué usarlo",
+    "section": "",
+    "text": "¿Preguntas?\n\nFrancisco Alfaro\nfralfaro@usm.cl\nDocencia Digital · UTFSM\n2026"
+  },
+  {
+    "objectID": "04_quarto/03_portafolio.html#section",
+    "href": "04_quarto/03_portafolio.html#section",
+    "title": "Publicación con GitHub Pages",
+    "section": "",
+    "text": "Publicación con GitHub Pages\nDe archivo local a sitio web público en minutos\n\n\nSesión 4 — Quarto para material académico\n\n\nFrancisco Alfaro\nDocencia Digital · UTFSM · 2026"
+  },
+  {
+    "objectID": "04_quarto/03_portafolio.html#el-argumento-para-publicar",
+    "href": "04_quarto/03_portafolio.html#el-argumento-para-publicar",
+    "title": "Publicación con GitHub Pages",
+    "section": "El argumento para publicar",
+    "text": "El argumento para publicar\n\n\n\n“El material de un curso que vive solo en tu computador existe para ti.\nEl material que vive en un sitio web público existe para todos.”\n\n\nTus estudiantes de este semestre\nLos del próximo semestre\nColegas de otras universidades que buscan recursos\nTú mismo cuando necesitas el apunte en un dispositivo que no es el tuyo\n\n\n\n\n\nGitHub Pages\n\n\n\nGratis (para repos públicos)\nSin configuración de servidor\nDominio automático: usuario.github.io/repo\nActualizaciones automáticas con cada push"
+  },
+  {
+    "objectID": "04_quarto/03_portafolio.html#quarto-publish-gh-pages-el-comando-más-rápido",
+    "href": "04_quarto/03_portafolio.html#quarto-publish-gh-pages-el-comando-más-rápido",
+    "title": "Publicación con GitHub Pages",
+    "section": "quarto publish gh-pages: el comando más rápido",
+    "text": "quarto publish gh-pages: el comando más rápido\n\n\nSi tienes el repositorio configurado:\n# Un solo comando\nquarto publish gh-pages\nQuarto hace automáticamente:\n\nRenderiza el sitio localmente\nCrea (o actualiza) el branch gh-pages\nSube los HTML al branch\nGitHub Pages sirve el contenido\n\nPrimera vez, pregunta:\n? Publish site to:\n  ❯ github-pages\n? GitHub Repository: usuario/mat281-2025-1\n? Publish to: https://usuario.github.io/mat281-2025-1\n\nCondiciones previas:\n# Verificar que estás en un repo de GitHub\ngit remote -v\n\n# Quarto instalado\nquarto --version\n\n# gh CLI autenticada (opcional pero recomendado)\ngh auth status\n\n\n\nPara publicar el sitio del curso\n\n\nEste es el método más rápido para empezar. Luego puedes migrar a GitHub Actions cuando quieras automatizar más."
+  },
+  {
+    "objectID": "04_quarto/03_portafolio.html#las-tres-rutas-de-publicación",
+    "href": "04_quarto/03_portafolio.html#las-tres-rutas-de-publicación",
+    "title": "Publicación con GitHub Pages",
+    "section": "Las tres rutas de publicación",
+    "text": "Las tres rutas de publicación\n\n\nOpción A: quarto publish\n\nRender local + push automático\nSin configuración de GitHub Actions\nIdeal para empezar rápido\nRequiere correr el comando manualmente cada vez\n\nquarto publish gh-pages\n\nOpción B: /docs en main\n\nRender local → commitear docs/\nGitHub Pages sirve desde main/docs\nMás control, sin Actions\n\n# _quarto.yml\nproject:\n  output-dir: docs\nquarto render\ngit add docs/\ngit commit -m \"render\"\ngit push\n\nOpción C: GitHub Actions\n\nRender automático en cada push\nSin archivos generados en el repo\nEl método más robusto\n\n# .github/workflows/deploy.yml\non:\n  push:\n    branches: [main]"
+  },
+  {
+    "objectID": "04_quarto/03_portafolio.html#activar-github-pages-en-el-repositorio",
+    "href": "04_quarto/03_portafolio.html#activar-github-pages-en-el-repositorio",
+    "title": "Publicación con GitHub Pages",
+    "section": "Activar GitHub Pages en el repositorio",
+    "text": "Activar GitHub Pages en el repositorio\n\n\nDespués de correr quarto publish (o configurar Actions):\n\nRepositorio en GitHub\nSettings → Pages\nSource:\n\nSi usas quarto publish: Deploy from branch → gh-pages → /root\nSi usas docs/: Deploy from branch → main → /docs\nSi usas Actions: GitHub Actions\n\nClic en Save\n\nEn 1-2 minutos el sitio está en:\nhttps://usuario.github.io/mat281-2025-1\n\nVerificar que funciona:\n\nTab Pages en Settings → URL del sitio activo\nTab Actions → último deploy exitoso ✅\nAbrir la URL en el navegador\n\n\n\n\n404 al principio\n\n\nSi el sitio muestra 404 inmediatamente después de activar, espera 1-2 minutos. GitHub Pages tarda un poco en propagar la primera vez."
+  },
+  {
+    "objectID": "04_quarto/03_portafolio.html#el-workflow-de-actions-para-github-pages",
+    "href": "04_quarto/03_portafolio.html#el-workflow-de-actions-para-github-pages",
+    "title": "Publicación con GitHub Pages",
+    "section": "El workflow de Actions para GitHub Pages",
+    "text": "El workflow de Actions para GitHub Pages\n# .github/workflows/deploy-pages.yml\nname: Deploy Quarto a GitHub Pages\n\non:\n  push:\n    branches: [main]\n  workflow_dispatch:\n\npermissions:\n  contents: read\n  pages: write\n  id-token: write\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: quarto-dev/quarto-actions/setup@v2\n        with:\n          version: '1.5.57'\n      - uses: actions/setup-python@v5\n        with:\n          python-version: '3.11'\n          cache: 'pip'\n      - run: pip install -r requirements.txt\n      - uses: actions/configure-pages@v4\n      - uses: quarto-dev/quarto-actions/render@v2\n      - uses: actions/upload-pages-artifact@v3\n        with:\n          path: '_site'\n\n  deploy:\n    needs: build\n    runs-on: ubuntu-latest\n    environment:\n      name: github-pages\n      url: ${{ steps.deployment.outputs.page_url }}\n    steps:\n      - uses: actions/deploy-pages@v4"
+  },
+  {
+    "objectID": "04_quarto/03_portafolio.html#freeze-el-secreto-del-deploy-rápido",
+    "href": "04_quarto/03_portafolio.html#freeze-el-secreto-del-deploy-rápido",
+    "title": "Publicación con GitHub Pages",
+    "section": "_freeze/: el secreto del deploy rápido",
+    "text": "_freeze/: el secreto del deploy rápido\n\n\nSin freeze:\nCada deploy ejecuta todo el código de todos los notebooks. Con 20 notebooks de 5 minutos cada uno → 100 minutos de build.\nCon freeze: auto:\n# _quarto.yml\nexecute:\n  freeze: auto\nQuarto guarda los resultados en _freeze/. Si el código no cambió, no lo re-ejecuta.\nBuild de 100 min → 3-5 min.\n\nImplementación:\n# Después de renderizar localmente\ngit add _freeze/\ngit commit -m \"chore: actualizar freeze cache\"\ngit push\nEn el workflow de Actions, _freeze/ ya está en el repo. Solo re-ejecuta lo que cambió.\n\n\n\nCommitear _freeze/\n\n\nEsto es inusual — normalmente los archivos generados no van al repo. Con Quarto, _freeze/ sí debe estar en el repo para que el deploy automático sea rápido."
+  },
+  {
+    "objectID": "04_quarto/03_portafolio.html#dominio-personalizado-opcional",
+    "href": "04_quarto/03_portafolio.html#dominio-personalizado-opcional",
+    "title": "Publicación con GitHub Pages",
+    "section": "Dominio personalizado (opcional)",
+    "text": "Dominio personalizado (opcional)\n\n\nSi quieres una URL como mat281.dmat.usm.cl en lugar de fralfaro.github.io/mat281-2025-1:\n1. Agregar archivo CNAME en la raíz:\nmat281.dmat.usm.cl\n2. En GitHub Pages Settings:\nSettings → Pages → Custom domain → mat281.dmat.usm.cl\n3. Configurar DNS en la institución:\nCNAME record: mat281.dmat.usm.cl → fralfaro.github.io\n(El administrador de TI de la universidad configura esto)\n\n\n\n\nHTTPS automático\n\n\nGitHub Pages activa automáticamente HTTPS (certificado Let’s Encrypt) para dominios personalizados. No requiere configuración adicional.\n\n\n\nPara proyectos Quarto, agregar en _quarto.yml:\nwebsite:\n  site-url: \"https://mat281.dmat.usm.cl\"\nEsto asegura que las URLs generadas sean correctas para el dominio personalizado."
+  },
+  {
+    "objectID": "04_quarto/03_portafolio.html#checklist-de-publicación-completa",
+    "href": "04_quarto/03_portafolio.html#checklist-de-publicación-completa",
+    "title": "Publicación con GitHub Pages",
+    "section": "Checklist de publicación completa",
+    "text": "Checklist de publicación completa\nContenido:\n☐ index.qmd con descripción del curso, equipo y calendario\n☐ Navegación configurada en _quarto.yml (navbar + sidebar)\n☐ Todos los .qmd tienen title y description en el frontmatter\n☐ Footer con licencia y datos de contacto\n\nEjecución:\n☐ freeze: auto configurado en _quarto.yml\n☐ _freeze/ commiteado al repositorio\n☐ quarto render ejecutado sin errores localmente\n\nGitHub Pages:\n☐ Repositorio en GitHub (público para Pages gratuito)\n☐ Settings → Pages configurado\n☐ Primera publicación exitosa (URL accesible)\n☐ Sitio verificado en móvil y escritorio\n\nAutomatización:\n☐ deploy-pages.yml en .github/workflows/\n☐ Primer deploy automático exitoso (Actions verde ✅)\n☐ Verificar que un push a main actualiza el sitio en 3-5 min"
+  },
+  {
+    "objectID": "04_quarto/03_portafolio.html#section-1",
+    "href": "04_quarto/03_portafolio.html#section-1",
+    "title": "Publicación con GitHub Pages",
+    "section": "",
+    "text": "¿Preguntas?\n\nFrancisco Alfaro\nfralfaro@usm.cl\nDocencia Digital · UTFSM\n2026"
+  }
+]
