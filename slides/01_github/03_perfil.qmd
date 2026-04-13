@@ -1,0 +1,165 @@
+---
+title: "Tu perfil en GitHub"
+subtitle: "Preséntate como estudiante con un perfil profesional"
+author: "Francisco Alfaro Medina & Patricio Olivares Roncagliolo"
+institute: "Aprende USM 2026 · UTFSM"
+date: today
+date-format: "MMMM YYYY"
+
+format:
+  revealjs:
+    theme: [default, ../custom.scss]
+    slide-number: true
+    progress: true
+    history: false
+    transition: fade
+    transition-speed: fast
+    incremental: false
+    fig-align: center
+    highlight-style: github
+    code-block-bg: true
+    center: false
+    width: 1280
+    height: 720
+    margin: 0.08
+    footer: "Aprende USM 2026 · UTFSM"
+    logo: "../../assets/img/brand/brand__usm.png"
+
+execute:
+  echo: false
+  warning: false
+---
+
+## {.title-slide background-color="#0F2044"}
+
+::: title-block
+**Tu perfil en GitHub**
+
+Preséntate como estudiante con un perfil profesional
+:::
+
+::: subtitle-block
+Sesión 3 — Módulo GitHub
+:::
+
+::: author-block
+Francisco Alfaro Medina & Patricio Olivares Roncagliolo\
+Aprende USM 2026 · UTFSM
+:::
+
+------------------------------------------------------------------------
+
+## Tu perfil es tu tarjeta de presentación digital
+
+Cuando postulas a una práctica o compartes tu trabajo:
+
+::: columns
+::: {.column width="50%"}
+**¿Qué ve alguien en tu perfil?**
+
+1. Tu foto y nombre
+2. **README de perfil** ← tú lo controlas
+3. Repositorios fijados
+4. Gráfico de actividad
+5. Estadísticas
+:::
+
+::: {.column width="50%"}
+::: {.callout-tip icon="false"}
+## Lo más importante
+
+El **README de perfil** es lo único que controlas completamente.
+
+Un perfil simple pero actualizado es mejor que uno elaborado y abandonado.
+:::
+:::
+:::
+
+------------------------------------------------------------------------
+
+## Cómo activar el README de perfil
+
+::: {.callout-note icon="false"}
+## Truco especial de GitHub
+Si creas un repositorio con **exactamente el mismo nombre que tu usuario**, el README aparece en tu perfil.
+:::
+
+**Pasos:**
+
+1. **+** → **New repository**
+2. Nombre: `tu-usuario` (idéntico a tu nombre de usuario)
+3. Marca **Public** + **Add a README file**
+4. Clic en **Create repository**
+
+GitHub mostrará: *"tu-usuario/tu-usuario is a special repository"* ✅
+
+------------------------------------------------------------------------
+
+## Qué incluir en tu README de perfil
+
+```markdown
+# Hola, soy Juan Pérez 👋
+
+Estudiante de Ing. Civil Informática en la UTFSM.
+Me interesa la ciencia de datos y el desarrollo web.
+
+## Sobre mí
+- 🎓 Estudiante de 2° año en UTFSM
+- 📍 Valparaíso, Chile
+- 📚 Aprendiendo Python y análisis de datos
+- 📫 juan.perez@usm.cl
+
+## Mis herramientas
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)
+```
+
+------------------------------------------------------------------------
+
+## Repositorios fijados: muestra lo mejor
+
+Puedes fijar hasta **6 repositorios** en tu portada.
+
+::: columns
+::: {.column width="55%"}
+**Qué fijar:**
+
+- Tus mejores trabajos de cursos
+- Proyectos propios que muestren habilidades
+- Tu sitio de portafolio (cuando lo tengas)
+:::
+
+::: {.column width="45%"}
+**Qué NO fijar:**
+
+- Repositorios vacíos
+- Forks sin contribuciones propias
+- Tareas sin completar
+:::
+:::
+
+**Cómo fijarlos:** Perfil → **Customize your pins** → selecciona y guarda
+
+------------------------------------------------------------------------
+
+## Actividad consistente > actividad explosiva
+
+::: columns
+::: {.column width="60%"}
+El gráfico de cuadraditos verdes muestra tu actividad diaria.
+
+No necesitas tenerlo completamente verde.
+
+**Lo que importa:** regularidad — algunos commits frecuentes son mejor que muchos commits un solo día y luego nada.
+:::
+
+::: {.column width="40%"}
+::: {.callout-tip icon="false"}
+## Tip práctico
+
+Cada vez que terminas algo, haz un commit. Aunque sea pequeño.
+
+El hábito construye el perfil.
+:::
+:::
+:::

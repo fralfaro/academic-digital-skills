@@ -1,0 +1,186 @@
+---
+title: "Tu repositorio académico"
+subtitle: "Cómo estructurar y documentar tu trabajo en GitHub"
+author: "Francisco Alfaro Medina & Patricio Olivares Roncagliolo"
+institute: "Aprende USM 2026 · UTFSM"
+date: today
+date-format: "MMMM YYYY"
+
+format:
+  revealjs:
+    theme: [default, ../custom.scss]
+    slide-number: true
+    progress: true
+    history: false
+    transition: fade
+    transition-speed: fast
+    incremental: false
+    fig-align: center
+    highlight-style: github
+    code-block-bg: true
+    center: false
+    width: 1280
+    height: 720
+    margin: 0.08
+    footer: "Aprende USM 2026 · UTFSM"
+    logo: "../../assets/img/brand/brand__usm.png"
+
+execute:
+  echo: false
+  warning: false
+---
+
+## {.title-slide background-color="#0F2044"}
+
+::: title-block
+**Tu repositorio académico**
+
+Cómo estructurar y documentar tu trabajo en GitHub
+:::
+
+::: subtitle-block
+Sesión 2 — Módulo GitHub
+:::
+
+::: author-block
+Francisco Alfaro Medina & Patricio Olivares Roncagliolo\
+Aprende USM 2026 · UTFSM
+:::
+
+------------------------------------------------------------------------
+
+## ¿Repositorio desordenado o repositorio útil?
+
+::: columns
+::: {.column width="50%"}
+**❌ Repositorio sin estructura**
+
+```
+mi-repo/
+├── archivo1.ipynb
+├── archivo2.ipynb
+├── datos.csv
+├── datos_v2.csv
+├── informe_FINAL.pdf
+└── informe_FINAL_v2.pdf
+```
+
+¿Qué es qué? ¿Cuál es el bueno?
+:::
+
+::: {.column width="50%"}
+**✅ Repositorio bien estructurado**
+
+```
+mi-proyecto/
+├── README.md
+├── .gitignore
+├── datos/
+│   └── dataset.csv
+├── notebooks/
+│   └── analisis.ipynb
+└── informe/
+    └── informe.pdf
+```
+
+Cualquiera entiende qué hay aquí.
+:::
+:::
+
+------------------------------------------------------------------------
+
+## El README: la portada de tu proyecto
+
+::: columns
+::: {.column width="55%"}
+El `README.md` es lo primero que ve alguien al entrar a tu repositorio.
+
+**Responde en 30 segundos:**
+
+- ¿Qué es este proyecto?
+- ¿Para qué curso o asignatura?
+- ¿Cómo usarlo?
+- ¿Quién lo hizo?
+:::
+
+::: {.column width="45%"}
+::: {.callout-tip icon="false"}
+## Herramientas útiles
+
+- **[readme.so](https://readme.so)** — editor visual
+- **[shields.io](https://shields.io)** — badges personalizados
+:::
+:::
+:::
+
+------------------------------------------------------------------------
+
+## Estructura del README para un proyecto estudiantil
+
+```markdown
+# Nombre del proyecto
+
+Descripción breve: qué hace, para qué curso, qué problema resuelve.
+
+## Contenido del repositorio
+
+- `datos/` — archivos de entrada
+- `notebooks/` — análisis y código
+- `informe/` — informe final
+
+## Cómo usar este repositorio
+
+1. Clona el repositorio
+2. Abre el notebook en Colab
+3. Ejecuta las celdas en orden
+
+## Autor
+
+Tu Nombre — tu.email@usm.cl — UTFSM 2026
+```
+
+------------------------------------------------------------------------
+
+## El .gitignore: qué NO subir a GitHub
+
+::: columns
+::: {.column width="50%"}
+**Nunca subas:**
+
+- `.DS_Store`, `Thumbs.db` (sistema operativo)
+- `__pycache__/`, `.ipynb_checkpoints/` (caché de Python)
+- `.env` — **contraseñas y tokens**
+- Archivos generados que puedes regenerar
+:::
+
+::: {.column width="50%"}
+::: {.callout-warning icon="false"}
+## Si subiste una contraseña
+
+Eliminar el archivo **no borra el historial**.
+
+**Cámbiala inmediatamente** en la plataforma correspondiente.
+
+Usa siempre `git status` antes de `git add .`
+:::
+:::
+:::
+
+------------------------------------------------------------------------
+
+## Checklist: repositorio listo para entregar
+
+- [ ] `README.md` que explica el proyecto
+- [ ] Carpetas con nombres descriptivos
+- [ ] `.gitignore` con archivos temporales excluidos
+- [ ] Sin contraseñas ni datos sensibles subidos
+- [ ] Commits con mensajes descriptivos
+- [ ] Licencia definida
+
+::: {.callout-note icon="false"}
+## Nombres de archivos
+Minúsculas, sin espacios, sin tildes.
+
+`analisis-exploratorio.ipynb` ✅
+`Análisis Exploratorio (1).ipynb` ❌
+:::

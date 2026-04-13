@@ -1,0 +1,183 @@
+---
+title: "Tu repositorio académico"
+subtitle: "Cómo estructurar y documentar tu trabajo en GitHub"
+---
+
+Subir archivos a GitHub sin orden es como tener una mochila donde metes todo revuelto. Funciona al principio, pero cuando necesitas algo con urgencia — antes de una entrega, en medio de una presentación — no encuentras nada.
+
+Este capítulo te enseña a organizar tu repositorio desde el principio, para que cualquier persona (incluido tú en seis meses) entienda qué hay ahí y cómo usarlo.
+
+---
+
+## ¿Qué va en un repositorio académico?
+
+Un repositorio académico es una carpeta versionada que contiene **todo lo relacionado con un proyecto o curso**: el código, los datos, los informes, las instrucciones para reproducirlo.
+
+La pregunta clave al organizar es: **¿si alguien clona este repositorio, puede entender qué es y qué hacer con él en menos de dos minutos?**
+
+### Estructura recomendada para un proyecto de curso
+
+```
+mi-proyecto/
+├── README.md          ← lo primero que ve cualquiera
+├── .gitignore         ← archivos que NO se suben a GitHub
+├── LICENSE            ← cómo pueden usar otros tu trabajo
+│
+├── datos/             ← archivos de datos de entrada
+│   └── dataset.csv
+│
+├── notebooks/         ← análisis y código (Colab, Jupyter)
+│   └── analisis.ipynb
+│
+├── informe/           ← informe final (LaTeX, Quarto, Word)
+│   └── informe.pdf
+│
+└── figuras/           ← gráficos generados
+    └── grafico_01.png
+```
+
+No existe una estructura "perfecta" universal. Lo importante es que sea **consistente** y que los nombres de carpetas sean descriptivos.
+
+::: {.callout-tip}
+## Nombres de archivos y carpetas
+Usa minúsculas, sin espacios, sin tildes. Separa palabras con guiones (`-`) o guiones bajos (`_`). Ejemplo: `analisis-exploratorio.ipynb`, no `Análisis Exploratorio (1).ipynb`.
+:::
+
+---
+
+## El README: la portada de tu proyecto
+
+El `README.md` es el primer archivo que GitHub muestra cuando alguien visita tu repositorio. Es tu oportunidad de explicar **qué es el proyecto, para qué sirve y cómo usarlo**.
+
+### Estructura mínima para un proyecto estudiantil
+
+````markdown
+# Nombre del proyecto
+
+Descripción en 2-3 líneas: qué hace este proyecto, para qué curso es,
+qué problema resuelve.
+
+## Contenido del repositorio
+
+```
+mi-proyecto/
+├── datos/        # datos utilizados en el análisis
+├── notebooks/    # código y análisis
+└── informe/      # informe final
+```
+
+## Cómo usar este repositorio
+
+1. Clona el repositorio: `git clone https://github.com/tu-usuario/mi-proyecto`
+2. Abre el notebook en Google Colab o Jupyter
+3. Ejecuta las celdas en orden
+
+## Autor
+
+Tu Nombre — tu.email@usm.cl
+Universidad Técnica Federico Santa María — 2026
+````
+
+> 🖼️ **Asset:** `assets/img/screenshot/screenshot__github--after.png` — repositorio bien estructurado en GitHub con README renderizado.
+
+### Elementos opcionales que mejoran mucho el README
+
+**Badges** — pequeñas etiquetas que muestran información de un vistazo:
+
+```markdown
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Estado](https://img.shields.io/badge/estado-en%20progreso-yellow)
+```
+
+Se ven así: ![Python](https://img.shields.io/badge/Python-3.11-blue) ![License](https://img.shields.io/badge/license-MIT-green)
+
+::: {.callout-tip}
+## Herramientas para construir el README
+- **[readme.so](https://readme.so)** — editor visual con secciones listas para usar.
+- **[shields.io](https://shields.io)** — crea badges personalizados.
+:::
+
+---
+
+## El .gitignore: qué no debe subirse a GitHub
+
+El `.gitignore` le dice a Git qué archivos ignorar. Hay cosas que **nunca deben subirse**:
+
+- Archivos temporales del sistema operativo (`.DS_Store`, `Thumbs.db`)
+- Cachés de Python (`__pycache__/`, `.ipynb_checkpoints/`)
+- Archivos de salida generados (puedes regenerarlos)
+- **Contraseñas, tokens, claves API** (`.env`) — esto es crítico
+
+### .gitignore básico para proyectos con Python/Colab
+
+```gitignore
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.env
+.venv/
+
+# Quarto
+_site/
+_book/
+/.quarto/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/settings.json
+.idea/
+```
+
+**¿Cómo generarlo automáticamente?**
+
+Ve a [gitignore.io](https://www.toptal.com/developers/gitignore), ingresa `python`, `macos`, `windows` y descarga el resultado.
+
+::: {.callout-warning}
+## Si ya subiste algo que no debías
+Eliminar el archivo con un nuevo commit **no borra el historial** — el archivo sigue siendo accesible en commits anteriores. Si subiste una contraseña o token, **cámbialo inmediatamente** en la plataforma correspondiente. La regla es: revisa siempre con `git status` antes de hacer `git add .`.
+:::
+
+---
+
+## Licencias: ¿pueden otros usar tu trabajo?
+
+Sin licencia, tu repositorio público tiene **todos los derechos reservados por defecto**. Nadie puede reutilizarlo legalmente aunque sea público.
+
+Para proyectos académicos estudiantiles, dos opciones simples:
+
+| Licencia | Para qué sirve |
+|----------|---------------|
+| **MIT** | Código: permite que cualquiera lo use, copie y modifique |
+| **CC BY 4.0** | Contenido (informes, apuntes): permite compartir con atribución |
+
+Al crear el repositorio en GitHub, puedes elegir la licencia directamente. Para código, **MIT** es la más usada y la más simple.
+
+---
+
+## Resumen: checklist del repositorio bien estructurado
+
+Antes de entregar o compartir tu repositorio, verifica:
+
+- [ ] Tiene un `README.md` que explica qué es el proyecto
+- [ ] Los archivos están organizados en carpetas con nombres claros
+- [ ] Tiene `.gitignore` con los archivos temporales excluidos
+- [ ] No hay contraseñas, tokens ni datos sensibles subidos
+- [ ] Los commits tienen mensajes descriptivos (no "cambios", "arreglé cosas")
+- [ ] El repositorio tiene licencia definida
+
+---
+
+## 💡 Cómo puede ayudarte la IA en este módulo
+
+Puedes apoyarte en herramientas como **ChatGPT**, **Claude** o **GitHub Copilot** para:
+
+- Generar un README personalizado para tu proyecto: *"Escríbeme un README para un proyecto de análisis de datos en Python sobre precios de viviendas"*
+- Crear un `.gitignore` específico: *"Dame un .gitignore para un proyecto con Python, Jupyter y macOS"*
+- Mejorar los mensajes de tus commits: *"¿Cómo sería un buen mensaje de commit para indicar que agregué el análisis exploratorio?"*
+
+> ⚠️ Recuerda siempre revisar y entender lo que genera la IA antes de usarlo.

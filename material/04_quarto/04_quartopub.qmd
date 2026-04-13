@@ -1,0 +1,174 @@
+---
+title: "Publica con Quarto Pub"
+subtitle: "De Posit Cloud a un sitio web público en minutos"
+---
+
+GitHub Pages es poderoso pero requiere tener Git configurado y entender cómo funciona un repositorio. Si estás dando tus primeros pasos y quieres ver tu documento Quarto publicado en internet hoy mismo, existe una alternativa más directa: **Quarto Pub**.
+
+Quarto Pub es la plataforma oficial de publicación de Quarto. Es gratuita, no requiere instalar nada extra, y funciona directamente desde Posit Cloud con un solo comando.
+
+---
+
+## ¿Qué es Quarto Pub?
+
+**[Quarto Pub](https://quartopub.com)** es una plataforma gratuita de hosting para documentos y sitios Quarto. Piénsalo como el "YouTube de los documentos Quarto": subes tu trabajo y queda disponible en una URL pública.
+
+| Característica | Quarto Pub | GitHub Pages |
+|---------------|-----------|-------------|
+| Requiere Git | No | Sí |
+| Gratuito | Sí | Sí |
+| Dominio | `usuario.quarto.pub/proyecto` | `usuario.github.io/repo` |
+| Actualizar | Un comando | Commit + push + comando |
+| Control de versiones | No (solo el resultado) | Sí (historial completo) |
+
+::: {.callout-tip}
+## ¿Cuándo usar cada uno?
+Usa **Quarto Pub** cuando quieres publicar rápido sin pensar en Git. Usa **GitHub Pages** cuando quieres control de versiones y el sitio integrado con tu repositorio.
+:::
+
+---
+
+## Crear una cuenta en Quarto Pub
+
+1. Ve a [quartopub.com](https://quartopub.com)
+2. Clic en **Sign Up**
+3. Puedes registrarte con tu cuenta de GitHub (recomendado) o con email
+4. Elige un **nombre de usuario** — aparecerá en la URL de todos tus documentos
+
+Tu URL base quedará: `https://tu-usuario.quarto.pub`
+
+> 🖼️ **Asset:** `assets/img/screenshot/screenshot__quartopub-home.png` — pantalla de inicio de Quarto Pub.
+
+---
+
+## Publicar desde Posit Cloud
+
+### Preparar tu proyecto en Posit Cloud
+
+1. Abre tu proyecto en [posit.cloud](https://posit.cloud)
+2. Asegúrate de que tu documento o proyecto Quarto renderiza correctamente:
+
+```bash
+quarto render
+```
+
+Si renderiza sin errores, estás listo para publicar.
+
+### Publicar con un comando
+
+```bash
+quarto publish quarto-pub
+```
+
+La primera vez, Quarto te pedirá autenticarte:
+
+```
+? No accounts found. Would you like to log into Quarto Pub? (Y/n) Y
+→ Abre el navegador para autorizar la conexión con tu cuenta
+```
+
+Luego te pregunta el nombre del sitio:
+
+```
+? Site name: mi-analisis-datos
+→ Tu sitio quedará en: tu-usuario.quarto.pub/mi-analisis-datos
+```
+
+Quarto hace todo el resto:
+1. Renderiza el proyecto completo
+2. Sube los archivos generados a Quarto Pub
+3. Muestra la URL final en la terminal
+
+### Actualizar el sitio publicado
+
+Cuando hagas cambios y quieras actualizar el sitio:
+
+```bash
+quarto publish quarto-pub
+```
+
+El mismo comando — Quarto detecta que ya existe el sitio y lo actualiza.
+
+::: {.callout-note}
+## El archivo `_publish.yml`
+Después de la primera publicación, Quarto crea un archivo `_publish.yml` en tu proyecto con la configuración guardada. No lo borres — es lo que permite que las publicaciones siguientes vayan al mismo sitio automáticamente.
+:::
+
+---
+
+## Tipos de documentos que puedes publicar
+
+Quarto Pub acepta cualquier tipo de output Quarto:
+
+| Tipo | Descripción | Comando de render |
+|------|-------------|-------------------|
+| Documento HTML | Una sola página | `quarto render documento.qmd` |
+| Sitio web | Varias páginas con navegación | `quarto render` (proyecto `website`) |
+| Libro | Capítulos con tabla de contenidos | `quarto render` (proyecto `book`) |
+| Presentación RevealJS | Slides interactivos | `quarto render slides.qmd` |
+
+Para publicar cualquiera de estos, el comando es siempre el mismo:
+
+```bash
+quarto publish quarto-pub
+```
+
+---
+
+## Administrar tus publicaciones
+
+En [quartopub.com](https://quartopub.com), bajo tu perfil, puedes:
+
+- Ver todos tus sitios publicados
+- Acceder a la URL de cada uno
+- **Eliminar** un sitio (lo borra de internet pero no de Posit Cloud)
+- Ver estadísticas básicas de visitas
+
+> 🖼️ **Asset:** `assets/img/screenshot/screenshot__quartopub-dashboard.png` — panel de administración de Quarto Pub con sitios publicados.
+
+---
+
+## Flujo completo: de Posit Cloud a Quarto Pub
+
+```
+1. Escribe tu documento en Posit Cloud
+   └── archivo.qmd con tu análisis, texto, gráficos
+
+2. Verifica que renderiza bien
+   └── quarto render
+
+3. Publica
+   └── quarto publish quarto-pub
+       ├── Primera vez: autenticación + nombre del sitio
+       └── Siguientes veces: actualización directa
+
+4. Comparte la URL
+   └── tu-usuario.quarto.pub/nombre-sitio
+```
+
+---
+
+## Visibilidad: público vs. privado
+
+Todos los sitios en Quarto Pub son **públicos por defecto**. Cualquier persona con la URL puede verlos.
+
+Si quieres publicar algo de forma privada, las alternativas son:
+- **GitHub Pages** con repositorio privado (requiere GitHub Pro para Pages privadas)
+- No publicar y compartir el archivo PDF o HTML directamente por email
+
+::: {.callout-warning}
+## No publiques información sensible
+Antes de publicar, revisa que tu documento no contiene datos personales, contraseñas, tokens de API ni información confidencial. Una vez publicado, cualquiera con la URL puede verlo.
+:::
+
+---
+
+## 💡 Cómo puede ayudarte la IA en este módulo
+
+Puedes apoyarte en herramientas como **ChatGPT**, **Claude** o **GitHub Copilot** para:
+
+- Resolver errores de publicación: *"Al ejecutar `quarto publish quarto-pub` me aparece este error: [pega el error]. ¿Qué significa y cómo lo soluciono?"*
+- Mejorar la presentación de tu documento antes de publicar: *"¿Qué elementos debería incluir en la página de inicio de un sitio Quarto con mis trabajos universitarios?"*
+- Convertir un documento Word o PDF a formato `.qmd` para publicarlo en Quarto Pub
+
+> ⚠️ Recuerda siempre revisar y entender lo que genera la IA antes de usarlo.

@@ -1,0 +1,58 @@
+project:
+  type: book
+  output-dir: docs
+  render:
+    - "index.qmd"
+    - "material/00_intro/intro.qmd"
+    - "material/01_github/*.qmd"
+    - "material/02_colab/*.qmd"
+    - "material/03_latex/*.qmd"
+    - "material/04_quarto/*.qmd"
+
+book:
+  title: "Aprende a gestionar tu trabajo académico con herramientas digitales"
+  subtitle: "MOOC propedéutico — Aprende USM 2026"
+  author: "Francisco Alfaro Medina & Patricio Olivares Roncagliolo"
+  date: "2026"
+  favicon: "assets/img/brand/brand__usm.png"
+  repo-url: "https://github.com/fralfaro/academic-digital-skills"
+  sidebar:
+    logo: "assets/img/icon/icon__notebook-hat.png"
+
+  chapters:
+    - index.qmd
+    - part: "Introducción"
+      chapters:
+        - material/00_intro/intro.qmd
+    - part: material/01_github/index.qmd
+      chapters:
+        - material/01_github/01_esencial.qmd
+        - material/01_github/02_repositorio.qmd
+        - material/01_github/03_perfil.qmd
+        - material/01_github/04_issues.qmd
+        - material/01_github/05_pages.qmd
+    - part: material/02_colab/index.qmd
+      chapters:
+        - material/02_colab/01_esencial.qmd
+        - material/02_colab/02_practica.qmd
+    - part: material/03_latex/index.qmd
+      chapters:
+        - material/03_latex/01_esencial.qmd
+        - material/03_latex/02_informe.qmd
+    - part: material/04_quarto/index.qmd
+      chapters:
+        - material/04_quarto/01_intro.qmd
+        - material/04_quarto/02_positcloud.qmd
+        - material/04_quarto/03_portafolio.qmd
+        - material/04_quarto/04_quartopub.qmd
+
+lang: es
+
+format:
+  html:
+    theme:
+      light: [flatly, light.scss]
+      dark: [darkly, dark.scss]
+    number-sections: false
+    toc: true
+    page-layout: full

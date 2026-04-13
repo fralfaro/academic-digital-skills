@@ -1,0 +1,194 @@
+---
+title: "Organiza tu trabajo con Issues"
+subtitle: "GitHub Issues como sistema personal de tareas académicas"
+author: "Francisco Alfaro Medina & Patricio Olivares Roncagliolo"
+institute: "Aprende USM 2026 · UTFSM"
+date: today
+date-format: "MMMM YYYY"
+
+format:
+  revealjs:
+    theme: [default, ../custom.scss]
+    slide-number: true
+    progress: true
+    history: false
+    transition: fade
+    transition-speed: fast
+    incremental: false
+    fig-align: center
+    highlight-style: github
+    code-block-bg: true
+    center: false
+    width: 1280
+    height: 720
+    margin: 0.08
+    footer: "Aprende USM 2026 · UTFSM"
+    logo: "../../assets/img/brand/brand__usm.png"
+
+execute:
+  echo: false
+  warning: false
+---
+
+## {.title-slide background-color="#0F2044"}
+
+::: title-block
+**Organiza tu trabajo con Issues**
+
+GitHub Issues como sistema personal de tareas académicas
+:::
+
+::: subtitle-block
+Sesión 4 — Módulo GitHub
+:::
+
+::: author-block
+Francisco Alfaro Medina & Patricio Olivares Roncagliolo\
+Aprende USM 2026 · UTFSM
+:::
+
+------------------------------------------------------------------------
+
+## Tener todo en la cabeza no escala
+
+::: columns
+::: {.column width="55%"}
+¿Te ha pasado alguno de estos?
+
+- Olvidaste que tenías algo pendiente hasta el día antes de la entrega
+- Corregiste un error pero no recuerdas dónde ni cuándo
+- Tu proyecto tiene "cosas por hacer" pero no sabes exactamente cuáles
+:::
+
+::: {.column width="45%"}
+::: {.callout-important icon="false"}
+## GitHub Issues
+
+Un sistema de tareas que vive exactamente donde está tu trabajo.
+
+Escrito, visible, rastreable.
+:::
+:::
+:::
+
+------------------------------------------------------------------------
+
+## ¿Qué es un Issue?
+
+Un Issue puede ser cualquier cosa pendiente:
+
+| Tipo | Ejemplo |
+|------|---------|
+| Tarea | *"Agregar conclusiones al informe"* |
+| Error | *"El gráfico falla si el CSV tiene vacíos"* |
+| Idea | *"Probar con otro dataset para comparar"* |
+| Pregunta | *"¿El formato de entrega es PDF o HTML?"* |
+
+**Crear un Issue:**
+
+Repositorio → **Issues** → **New issue** → título + descripción → **Submit**
+
+------------------------------------------------------------------------
+
+## Títulos que funcionan
+
+::: columns
+::: {.column width="50%"}
+**❌ Títulos vagos**
+
+- "arreglar cosa"
+- "pendiente"
+- "revisar"
+- "idea"
+:::
+
+::: {.column width="50%"}
+**✅ Títulos accionables**
+
+- "Corregir error en celda 7 del notebook"
+- "Agregar conclusiones al informe final"
+- "Revisar que .gitignore excluya .env"
+- "Probar análisis con dataset de Kaggle"
+:::
+:::
+
+::: {.callout-tip icon="false"}
+## Fórmula simple
+**Verbo + objeto** — permite entender la tarea sin leer la descripción.
+:::
+
+------------------------------------------------------------------------
+
+## Checklists: divide tareas grandes
+
+```markdown
+## Tareas para el informe final
+
+- [x] Introducción y contexto
+- [x] Análisis exploratorio de datos
+- [ ] Sección de resultados
+- [ ] Conclusiones
+- [ ] Revisar formato de referencias
+- [ ] Exportar a PDF
+```
+
+GitHub muestra el progreso automáticamente en la lista de Issues:
+
+> ✅ **3/6 tareas completadas**
+
+::: {.callout-tip icon="false"}
+## Un Issue por entregable
+Crea un Issue por cada entrega del semestre con su checklist. Al cerrarlos, tienes un historial completo de lo que completaste.
+:::
+
+------------------------------------------------------------------------
+
+## Labels y Milestones
+
+::: columns
+::: {.column width="50%"}
+**Labels — categorizar Issues**
+
+| Label | Para qué |
+|-------|---------|
+| `tarea` | Entregables con fecha |
+| `bug` | Errores en el código |
+| `urgente` | Necesario ya |
+| `idea` | Mejoras para después |
+:::
+
+::: {.column width="50%"}
+**Milestones — agrupar por entrega**
+
+```
+"Lab 3" — 15 mayo
+├── Análisis de correlación
+├── Gráfico de dispersión
+├── Redactar conclusiones
+└── Revisar formato
+```
+
+Muestra el % de avance automáticamente.
+:::
+:::
+
+------------------------------------------------------------------------
+
+## Cerrar un Issue desde un commit
+
+La parte más poderosa: el Issue se cierra solo al hacer push.
+
+```bash
+git commit -m "fix: corrijo error en celda 7 del notebook
+
+Closes #3"
+```
+
+Al hacer `git push` → GitHub cierra el Issue #3 y vincula el commit.
+
+**Palabras que funcionan:** `Closes #N` · `Fixes #N` · `Resolves #N`
+
+::: {.callout-note icon="false"}
+## Resultado
+Puedes ver exactamente **qué cambio resolvió cada tarea** — trazabilidad completa de tu trabajo.
+:::

@@ -1,0 +1,143 @@
+---
+title: "Tu perfil en GitHub"
+subtitle: "Cómo presentarte como estudiante con un perfil profesional"
+---
+
+Tu perfil de GitHub es tu tarjeta de presentación digital como estudiante. Cuando postulas a una práctica, envías un trabajo a un concurso o simplemente quieres que alguien vea lo que sabes hacer, GitHub es donde lo demuestras.
+
+Este capítulo te enseña a construir un perfil que comunique quién eres y qué has hecho — sin exagerar, sin inventar.
+
+---
+
+## ¿Qué ve alguien cuando visita tu perfil?
+
+Cuando alguien entra a `github.com/tu-usuario`, ve:
+
+1. **Tu foto y nombre** — identificación básica
+2. **Tu README de perfil** — una descripción personalizada (si lo tienes configurado)
+3. **Tus repositorios fijados** — los proyectos que quieres destacar
+4. **Tu actividad** — el gráfico de contribuciones (los cuadraditos verdes)
+5. **Tus estadísticas** — repositorios públicos, seguidores, estrellas recibidas
+
+Lo más importante — y lo único que tú controlas completamente — es el **README de perfil**.
+
+> 🖼️ **Asset:** `assets/img/screenshot/screenshot__github-profile.png` — ejemplo de perfil de GitHub bien configurado.
+
+---
+
+## El README de perfil: cómo activarlo
+
+GitHub tiene una función especial: si creas un repositorio con **exactamente el mismo nombre que tu usuario**, el `README.md` de ese repositorio aparece en la portada de tu perfil.
+
+### Pasos para activarlo
+
+1. Ve a [github.com](https://github.com) y haz clic en **+** → **New repository**
+2. En el nombre escribe **exactamente tu nombre de usuario** (ej. `juan-perez`)
+3. Marca **Public**
+4. Marca **Add a README file**
+5. Clic en **Create repository**
+
+GitHub te mostrará un mensaje: *"juan-perez/juan-perez is a special repository"* — eso confirma que está bien configurado.
+
+Ahora edita el `README.md` de ese repositorio para presentarte.
+
+---
+
+## Qué incluir en tu README de perfil
+
+No hay una fórmula única, pero hay una estructura que funciona para estudiantes:
+
+````markdown
+# Hola, soy Juan Pérez 👋
+
+Estudiante de Ingeniería Civil Informática en la UTFSM, Valparaíso.
+Me interesa la ciencia de datos y el desarrollo web.
+
+## Sobre mí
+
+- 🎓 Estudiante de 2° año en UTFSM
+- 📍 Valparaíso, Chile
+- 📚 Actualmente aprendiendo Python y análisis de datos
+- 📫 Contacto: juan.perez@usm.cl
+
+## Mis herramientas
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)
+![Colab](https://img.shields.io/badge/Google_Colab-F9AB00?style=flat&logo=googlecolab&logoColor=white)
+
+## Proyectos destacados
+
+- 📊 [Análisis de datos de calidad del aire](https://github.com/juan-perez/calidad-aire) — proyecto de laboratorio MAT281
+- 📄 [Mi portafolio académico](https://juan-perez.github.io) — sitio publicado con Quarto
+````
+
+### Qué NO poner
+
+- No pongas skills que no tienes o que conoces solo superficialmente
+- No copies READMEs de otros sin adaptar
+- No pongas información personal sensible (dirección, teléfono)
+
+::: {.callout-tip}
+## Mantén tu perfil actualizado
+Un perfil con proyectos de hace tres años y sin actividad reciente da peor impresión que uno simple pero actualizado. Actualiza tus repositorios fijados cada vez que termines un proyecto nuevo.
+:::
+
+---
+
+## Repositorios fijados: elige qué mostrar
+
+Puedes fijar hasta **6 repositorios** en la portada de tu perfil. Esos son los proyectos que verán primero las personas que visiten tu perfil.
+
+**Cómo fijarlos:**
+
+1. Ve a tu perfil → sección **Repositories**
+2. Clic en **Customize your pins**
+3. Selecciona hasta 6 repositorios y guarda
+
+**Qué fijar:**
+- Tus mejores trabajos de cursos
+- Proyectos personales que muestren lo que sabes
+- Tu sitio de portafolio (cuando lo tengas)
+
+**Qué no fijar:**
+- Repositorios vacíos o con solo un archivo
+- Forks de otros proyectos sin contribuciones propias
+- Tareas sin completar
+
+---
+
+## El gráfico de contribuciones
+
+El gráfico de cuadraditos verdes muestra tu actividad en GitHub: cada cuadrado representa un día, y el color indica cuántos commits hiciste.
+
+No es necesario tener el gráfico completamente verde para que tu perfil sea bueno. Lo que importa es mostrar **consistencia** — algunos commits regulares son mejor que una explosión de actividad seguida de meses vacíos.
+
+::: {.callout-note}
+## Los commits cuentan solo si el repositorio está en tu cuenta
+Los commits en repositorios de otros usuarios (forks) no siempre aparecen en tu gráfico. Para que cuenten, el repositorio debe estar en tu cuenta o debes ser colaborador reconocido.
+:::
+
+---
+
+## Estadísticas automáticas (opcional)
+
+Existe un proyecto open-source llamado [github-readme-stats](https://github.com/anuraghazra/github-readme-stats) que genera tarjetas de estadísticas para pegar en tu README:
+
+```markdown
+![Estadísticas de Juan](https://github-readme-stats.vercel.app/api?username=juan-perez&show_icons=true&theme=default&locale=es)
+```
+
+Estas tarjetas muestran número de commits, repositorios, lenguajes más usados, etc. Son opcionales — úsalas si quieres darle un aspecto más visual a tu perfil.
+
+---
+
+## 💡 Cómo puede ayudarte la IA en este módulo
+
+Puedes apoyarte en herramientas como **ChatGPT**, **Claude** o **GitHub Copilot** para:
+
+- Redactar la descripción de tu perfil: *"Ayúdame a escribir una presentación de 3 líneas para mi perfil de GitHub. Soy estudiante de ingeniería en Chile, me interesa la ciencia de datos"*
+- Generar los badges de herramientas: *"Dame los badges de shields.io para Python, Jupyter y VS Code"*
+- Mejorar el README de un repositorio que quieres fijar en tu perfil
+
+> ⚠️ Recuerda siempre revisar y entender lo que genera la IA antes de usarlo.

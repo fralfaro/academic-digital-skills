@@ -1,0 +1,162 @@
+---
+title: "Publica con Quarto Pub"
+subtitle: "De Posit Cloud a un sitio web público en minutos"
+author: "Francisco Alfaro Medina & Patricio Olivares Roncagliolo"
+institute: "Aprende USM 2026 · UTFSM"
+date: today
+date-format: "MMMM YYYY"
+
+format:
+  revealjs:
+    theme: [default, ../custom.scss]
+    slide-number: true
+    progress: true
+    history: false
+    transition: fade
+    transition-speed: fast
+    incremental: false
+    fig-align: center
+    highlight-style: github
+    code-block-bg: true
+    center: false
+    width: 1280
+    height: 720
+    margin: 0.08
+    footer: "Aprende USM 2026 · UTFSM"
+    logo: "../../assets/img/brand/brand__usm.png"
+
+execute:
+  echo: false
+  warning: false
+---
+
+## {.title-slide background-color="#0F2044"}
+
+::: title-block
+**Publica con Quarto Pub**
+
+De Posit Cloud a un sitio web público en minutos
+:::
+
+::: subtitle-block
+Sesión 4 — Módulo Quarto
+:::
+
+::: author-block
+Francisco Alfaro Medina & Patricio Olivares Roncagliolo\
+Aprende USM 2026 · UTFSM
+:::
+
+------------------------------------------------------------------------
+
+## ¿Qué es Quarto Pub?
+
+::: columns
+::: {.column width="55%"}
+**[quartopub.com](https://quartopub.com)** — plataforma oficial y gratuita de publicación para documentos Quarto.
+
+- No requiere instalar nada extra
+- Funciona directamente desde Posit Cloud
+- Un solo comando para publicar
+- URL pública: `usuario.quarto.pub/proyecto`
+:::
+
+::: {.column width="45%"}
+| | Quarto Pub | GitHub Pages |
+|--|-----------|-------------|
+| Requiere Git | ❌ | ✅ |
+| Gratuito | ✅ | ✅ |
+| Velocidad | ⚡ Rápido | Más pasos |
+:::
+:::
+
+::: {.callout-tip icon="false"}
+## ¿Cuándo usarlo?
+Quarto Pub para publicar **rápido**. GitHub Pages cuando quieres **control de versiones integrado**.
+:::
+
+------------------------------------------------------------------------
+
+## Paso 1: Crear cuenta en Quarto Pub
+
+1. Ve a **[quartopub.com](https://quartopub.com)**
+2. Clic en **Sign Up**
+3. Regístrate con tu cuenta de GitHub (recomendado)
+4. Elige un nombre de usuario
+
+Tu URL base: `https://tu-usuario.quarto.pub`
+
+------------------------------------------------------------------------
+
+## Paso 2: Verificar que tu proyecto renderiza
+
+Desde la terminal de Posit Cloud:
+
+```bash
+quarto render
+```
+
+Si no hay errores → estás listo para publicar.
+
+::: {.callout-note icon="false"}
+## ¿Por qué verificar primero?
+Si el documento tiene errores de código, la publicación fallará. Es más fácil corregir antes de publicar.
+:::
+
+------------------------------------------------------------------------
+
+## Paso 3: Publicar con un comando
+
+```bash
+quarto publish quarto-pub
+```
+
+**Primera vez:**
+
+```
+? No accounts found. Would you like to log into Quarto Pub? (Y/n) Y
+→ Se abre el navegador para autorizar
+
+? Site name: mi-analisis-datos
+→ tu-usuario.quarto.pub/mi-analisis-datos ✅
+```
+
+**Siguientes veces:** el mismo comando actualiza el sitio directamente.
+
+------------------------------------------------------------------------
+
+## Qué puedes publicar
+
+| Tipo | Descripción |
+|------|-------------|
+| Documento HTML | Una sola página con tu análisis |
+| Sitio web | Varias páginas con navegación |
+| Libro | Capítulos con tabla de contenidos |
+| Presentación RevealJS | Slides interactivos |
+
+El comando es siempre el mismo: `quarto publish quarto-pub`
+
+------------------------------------------------------------------------
+
+## Flujo completo
+
+```
+1. Escribe en Posit Cloud
+   └── archivo.qmd
+
+2. Verifica
+   └── quarto render
+
+3. Publica
+   └── quarto publish quarto-pub
+
+4. Comparte
+   └── tu-usuario.quarto.pub/nombre-sitio
+```
+
+::: {.callout-warning icon="false"}
+## Visibilidad
+Todos los sitios en Quarto Pub son **públicos**.
+
+Revisa que no haya datos sensibles, contraseñas ni información confidencial antes de publicar.
+:::

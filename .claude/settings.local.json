@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv material/01_github/03_automatizacion.qmd material/01_github/02_pages.qmd)",
+      "Bash(mv material/02_colab/colab_01_esencial.qmd material/02_colab/01_esencial.qmd)",
+      "Bash(mv material/02_colab/colab_02_pandas.qmd material/02_colab/02_practica.qmd)",
+      "Bash(mv material/03_latex/overleaf_01_esencial.qmd material/03_latex/01_esencial.qmd)",
+      "Bash(mv material/03_latex/overleaf_03_plantillas.qmd material/03_latex/02_informe.qmd)",
+      "Bash(mv slides/01_github/03_automatizacion.qmd slides/01_github/05_pages.qmd)",
+      "Bash(mv slides/02_colab/02_pandas.qmd slides/02_colab/02_practica.qmd)",
+      "Bash(mv slides/03_latex/03_plantillas.qmd slides/03_latex/02_informe.qmd)",
+      "Bash(mv slides/04_quarto/02_documentos.qmd slides/04_quarto/02_positcloud.qmd)",
+      "Bash(mv slides/04_quarto/05_pages.qmd slides/04_quarto/03_portafolio.qmd)"
+    ]
+  }
+}

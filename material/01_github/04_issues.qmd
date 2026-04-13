@@ -1,0 +1,180 @@
+---
+title: "Organiza tu trabajo con Issues"
+subtitle: "GitHub Issues como sistema personal de tareas académicas"
+---
+
+Tener todo en la cabeza no escala. Cuando trabajas solo en un proyecto simple puede funcionar, pero en cuanto tienes varias entregas, errores pendientes de corregir y cosas que quieres mejorar después, necesitas un sistema externo.
+
+GitHub Issues es ese sistema — y tiene la ventaja de vivir exactamente donde está tu trabajo.
+
+---
+
+## ¿Qué es un Issue?
+
+Un **Issue** es una unidad de trabajo registrada en tu repositorio. Puede ser:
+
+- Una tarea pendiente: *"Agregar sección de conclusiones al informe"*
+- Un error que encontraste: *"El gráfico no se genera si el CSV tiene valores vacíos"*
+- Una idea para después: *"Probar con otro dataset para comparar resultados"*
+- Una pregunta: *"¿El formato de entrega debe ser PDF o HTML?"*
+
+Lo importante es que está **escrito, visible y rastreable** — no perdido en un chat o en tu memoria.
+
+---
+
+## Crear tu primer Issue
+
+1. Ve a tu repositorio en GitHub
+2. Haz clic en el tab **Issues**
+3. Clic en **New issue**
+4. Escribe un **título** claro y accionable (verbo + objeto)
+5. En la descripción, agrega contexto, pasos, capturas si ayudan
+6. Clic en **Submit new issue**
+
+### Títulos que funcionan vs. títulos que no
+
+| ❌ Malo | ✅ Bueno |
+|---------|---------|
+| "arreglar cosa" | "Corregir error en celda 7 del notebook" |
+| "pendiente" | "Agregar conclusiones al informe final" |
+| "revisar" | "Revisar que el .gitignore excluya los archivos .env" |
+| "idea" | "Probar análisis con dataset de Kaggle" |
+
+Un buen título permite entender la tarea sin leer la descripción.
+
+---
+
+## Checklists dentro de un Issue
+
+Puedes convertir un Issue en una lista de subtareas usando Markdown:
+
+```markdown
+## Tareas para el informe final
+
+- [x] Introducción y contexto
+- [x] Análisis exploratorio de datos
+- [ ] Sección de resultados
+- [ ] Conclusiones
+- [ ] Revisar formato de referencias
+- [ ] Exportar a PDF
+```
+
+GitHub renderiza eso como casillas de verificación interactivas. Además, en la lista de Issues aparece el progreso: *"3/6 tareas completadas"*.
+
+::: {.callout-tip}
+## Un Issue por entregable
+Una estrategia simple y efectiva: crea un Issue por cada entregable del semestre. Usa checklists para dividirlo en subtareas. Ciérralo cuando entregues. Al final del semestre tienes un historial completo de todo lo que completaste.
+:::
+
+---
+
+## Labels: categorizar tus Issues
+
+Los **labels** (etiquetas) te permiten clasificar y filtrar Issues. GitHub crea algunos por defecto (`bug`, `enhancement`, `question`). Puedes crear los tuyos.
+
+**Labels útiles para trabajo académico:**
+
+| Label | Color | Para qué |
+|-------|-------|---------|
+| `tarea` | Azul | Entregables con fecha límite |
+| `bug` | Rojo | Errores en el código o análisis |
+| `idea` | Verde | Mejoras para después |
+| `urgente` | Rojo oscuro | Necesario antes de la próxima clase |
+| `revisión` | Naranja | Cosas que necesitas revisar antes de entregar |
+
+**Cómo crear un label:**
+
+1. Tab **Issues** → **Labels** → **New label**
+2. Escribe el nombre, elige el color, guarda
+
+Luego al crear un Issue, seleccionas el label en el panel derecho.
+
+---
+
+## Milestones: agrupar Issues por fecha de entrega
+
+Un **Milestone** es un grupo de Issues asociado a una meta o fecha. Para trabajo académico, lo más útil es crear un Milestone por entrega importante.
+
+**Ejemplo:**
+
+```
+Milestone: "Entrega Laboratorio 3" — fecha: 15 de mayo
+├── Issue: Completar análisis de correlación
+├── Issue: Generar gráfico de dispersión
+├── Issue: Redactar conclusiones
+└── Issue: Revisar formato del informe
+```
+
+**Cómo crear un Milestone:**
+
+1. Tab **Issues** → **Milestones** → **New milestone**
+2. Título, descripción y fecha de vencimiento
+3. Al crear Issues, asígnalos al Milestone en el panel derecho
+
+El Milestone muestra el porcentaje de avance automáticamente a medida que cierras Issues.
+
+---
+
+## Cerrar un Issue desde un commit
+
+La parte más poderosa: puedes cerrar un Issue automáticamente cuando haces un commit que lo resuelve.
+
+```bash
+git commit -m "fix: corrijo error en celda 7 del notebook
+
+Closes #3"
+```
+
+Al hacer `git push`, GitHub cierra automáticamente el Issue #3 y vincula el commit. Esto crea una trazabilidad perfecta: puedes ver exactamente **qué cambio resolvió cada tarea**.
+
+Palabras que cierran un Issue automáticamente:
+- `Closes #N`
+- `Fixes #N`
+- `Resolves #N`
+
+::: {.callout-note}
+## ¿Cómo sé el número del Issue?
+El número aparece junto al título del Issue en la lista (ej. `#3`). También en la URL: `github.com/usuario/repo/issues/3`.
+:::
+
+---
+
+## Flujo de trabajo con Issues: un ejemplo real
+
+Imagina que estás trabajando en tu informe de laboratorio:
+
+```
+1. Abres un Issue: "Completar informe Lab 3" con checklist
+   ├── [ ] Análisis exploratorio
+   ├── [ ] Gráfico de correlación
+   └── [ ] Conclusiones
+
+2. Trabajas en el análisis, haces commit:
+   git commit -m "feat: agrego análisis exploratorio"
+
+3. Marcas la subtarea como completada en el Issue
+
+4. Terminas el gráfico, haces commit:
+   git commit -m "feat: agrego gráfico de correlación"
+
+5. Escribes las conclusiones, haces el commit final:
+   git commit -m "docs: agrego conclusiones del informe
+
+   Closes #5"
+
+6. El Issue se cierra automáticamente al hacer push
+```
+
+El resultado: un historial limpio de tu trabajo, vinculado a las tareas que completaste.
+
+---
+
+## 💡 Cómo puede ayudarte la IA en este módulo
+
+Puedes apoyarte en herramientas como **ChatGPT**, **Claude** o **GitHub Copilot** para:
+
+- Generar una checklist para un Issue: *"Crea una lista de subtareas para completar un informe de análisis de datos en Python"*
+- Escribir mensajes de commit que cierren Issues correctamente: *"¿Cómo sería el mensaje de commit para cerrar el Issue #4 que dice 'Corregir error en gráfico'?"*
+- Proponer un sistema de labels para tu proyecto: *"Sugiere labels para organizar Issues en un repositorio de proyecto universitario"*
+
+> ⚠️ Recuerda siempre revisar y entender lo que genera la IA antes de usarlo.
